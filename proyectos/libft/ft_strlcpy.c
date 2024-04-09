@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 12:46:50 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/09 09:20:42 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/09 14:30:40 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/09 15:21:23 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+	size_t	x;
+
+	x = 0;
+	while (*src && x + 1 < dstsize)
+	{
+		*dst++ = *src++;
+		x++;
+	}
+	if (x < dstsize)
+		*dst = 0;
+	while (*src++)
+		x++;
+	return (x);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	printf("%d\n", ft_isalpha('a'));
+	char	example[40];
+
+	ft_strlcpy(example, "Te voy a cortar toda la cebolla de la cocina", 24);
+	printf("%s\n", example);
 	return (0);
-}*/
+} */

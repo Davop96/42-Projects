@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 12:46:50 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/09 09:20:42 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/08 18:02:18 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/09 10:14:18 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isalnum(int c)
 {
-	if (c >= 65 && c <= 90)
+	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+	else
+		return (0);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	printf("%d\n", ft_isalpha('a'));
+	printf("%d-%d-%d\n", ft_isalnum('4'), ft_isalnum('&'), ft_isalnum('w'));
 	return (0);
-}*/
+} */

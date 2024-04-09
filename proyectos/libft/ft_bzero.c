@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 12:46:50 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/09 09:20:42 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/09 11:37:32 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/09 12:38:32 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_bzero(void *b, size_t n)
 {
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+	char	*x;
+
+	x = (char *)b;
+	while (n > 0)
+	{
+		*x = 0;
+		x++;
+		n--;
+	}
+	return (b);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	printf("%d\n", ft_isalpha('a'));
+	char str[60] = "Mariano Rajoy, el del viva el vino.";
+
+	ft_bzero(str + 0, 13);
+	printf("M.Rajoy es en realidad el señor %s\n", str);
 	return (0);
-}*/
+}
+ */

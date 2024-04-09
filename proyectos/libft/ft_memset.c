@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 12:46:50 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/09 09:20:42 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/09 11:01:26 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/09 11:37:41 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
-}
+	char	*x;
 
-/*int	main(void)
+	x = (char *)b;
+	while (len > 0)
+	{
+		*x = (char)c;
+		x++;
+		len--;
+	}
+	return (b);
+}
+/* int	main(void)
 {
-	printf("%d\n", ft_isalpha('a'));
+	char str[60] = "Elon Musk es culpable";
+
+	ft_memset(str, '.', 9 * sizeof(char));
+	printf("El tribunal dictamina que el señor %s\n", str);
 	return (0);
-}*/
+} */
