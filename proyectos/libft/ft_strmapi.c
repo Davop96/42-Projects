@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:37:32 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/11 15:12:17 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/11 16:58:18 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/11 17:01:24 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *b, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*x;
+	char	*str;
+	size_t	len;
+	size_t	i;
 
-	x = (char *)b;
-	while (n > 0)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		*x = 0;
-		x++;
-		n--;
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (b);
+	str[i] = '\0';
+	return (str);
 }
-
-/* int	main(void)
-{
-	char str[60] = "Mariano Rajoy, el del viva el vino.";
-
-	ft_bzero(str + 0, 13);
-	printf("M.Rajoy es en realidad el señor %s\n", str);
-	return (0);
-}
- */

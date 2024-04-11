@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:37:32 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/11 15:12:17 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/11 14:56:29 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/11 15:01:38 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *b, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*x;
+	size_t	start;
+	size_t	end;
 
-	x = (char *)b;
-	while (n > 0)
-	{
-		*x = 0;
-		x++;
-		n--;
-	}
-	return (b);
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
-
-/* int	main(void)
-{
-	char str[60] = "Mariano Rajoy, el del viva el vino.";
-
-	ft_bzero(str + 0, 13);
-	printf("M.Rajoy es en realidad el señor %s\n", str);
-	return (0);
-}
- */
