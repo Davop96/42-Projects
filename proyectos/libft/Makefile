@@ -1,4 +1,5 @@
 NAME = libft.a
+NAME_BONUS = libft_bonus.a
 FILES = ft_isalpha.c \
         ft_isdigit.c \
 		ft_isalnum.c \
@@ -29,8 +30,16 @@ FILES = ft_isalpha.c \
 		ft_itoa.c \
 		ft_strmapi.c \
 		ft_striteri.c \
-		ft_putchar_fd.c 
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+
+FILES_BONUS =  \
+
 OBJS = $(FILES:.c=.o)
+
+OBJS_BONUS = $(FILES_BONUS:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -52,5 +61,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(FILES) $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 
 .PHONY: all clean fclean re

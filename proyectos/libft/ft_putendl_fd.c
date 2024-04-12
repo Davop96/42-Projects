@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 17:08:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/12 10:53:25 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/04/12 10:59:59 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/04/12 11:29:45 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	if (s && fd >= 0)
+	{
+		write(fd, s, ft_strlen(s));
+		write(fd, "\n", 1);
+	}
 }
 
 /* int	main(void)
 {
-	char	c;
+	char	*str;
 	int		fd;
 
-	c = 'A';
+	str = "Hola, mundo!";
 	fd = 1;
-	ft_putchar_fd(c, fd);
+	ft_putendl_fd(str, fd);
 	return (0);
 }
  */
