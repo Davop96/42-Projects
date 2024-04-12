@@ -6,17 +6,21 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:12:15 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/12 11:43:29 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:33:41 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define FT_INT_MIN -2147483648
+# define FT_INT_MAX 2147483647
+
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -59,5 +63,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+
+t_list		*ft_lstnew(void *content);
 
 #endif

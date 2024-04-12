@@ -1,5 +1,10 @@
 NAME = libft.a
-NAME_BONUS = libft_bonus.a
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
+
 FILES = ft_isalpha.c \
         ft_isdigit.c \
 		ft_isalnum.c \
@@ -35,34 +40,36 @@ FILES = ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 
-FILES_BONUS =  \
+FILES_BONUS =  ft_lstnew.c 
 
-OBJS = $(FILES:.c=.o)
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(FILES))
+SRCS_BONUS = $(addprefix $(SRCS_DIR), $(FILES_BONUS))
 
-OBJS_BONUS = $(FILES_BONUS:.c=.o)
+OBJ_DIR = ./
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar
+OBJ = $(SRCS:%.c=%.o)
+OBJ_BONUS = $(SRCS_BONUS:%.c=%.o)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) -rc $@ $^
-	ranlib $@
-
-%.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+bonus: $(OBJ_BONUS)
+	$(AR) $(NAME) $(OBJ_BONUS)
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean all
+re: clean all
 
-bonus: $(FILES) $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+rebonus: fclean bonus
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re rebonus

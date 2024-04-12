@@ -6,55 +6,84 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 15:02:18 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/11 16:54:49 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:29:24 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countword(char const *s, char c)
+static int	count_words(const char *str, char c)
 {
-	size_t	count;
+	int	count;
+	int	i;
 
-	if (!*s)
-		return (0);
 	count = 0;
-	while (*s)
+	i = 0;
+	while (str[i])
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		if (str[i] != c)
+		{
 			count++;
-		while (*s != c && *s)
-			s++;
+			while (str[i] && str[i] != c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static char	*get_next_word(const char *str, char c, int *index)
 {
-	char	**lst;
-	size_t	word_len;
-	int		i;
+	int		start;
+	int		end;
+	char	*word;
 
-	lst = (char **)malloc((ft_countword(s, c) + 1) * sizeof(char *));
-	if (!s || !lst)
-		return (0);
+	while (str[*index] && str[*index] == c)
+		(*index)++;
+	start = *index;
+	while (str[*index] && str[*index] != c)
+		(*index)++;
+	end = *index;
+	word = ft_substr(str, start, end - start);
+	return (word);
+}
+
+static void	free_split(char **result)
+{
+	int	i;
+
 	i = 0;
-	while (*s)
+	while (result[i])
+		free(result[i++]);
+	free(result);
+}
+
+char	**ft_split(const char *str, char c)
+{
+	char	**result;
+	int		word_count;
+	int		i;
+	int		index;
+
+	if (!str)
+		return (NULL);
+	word_count = count_words(str, c);
+	result = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	index = 0;
+	while (i < word_count)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
+		result[i] = get_next_word(str, c, &index);
+		if (!result[i])
 		{
-			if (!ft_strchr(s, c))
-				word_len = ft_strlen(s);
-			else
-				word_len = ft_strchr(s, c) - s;
-			lst[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
+			free_split(result);
+			return (NULL);
 		}
+		i++;
 	}
-	lst[i] = NULL;
-	return (lst);
+	result[i] = NULL;
+	return (result);
 }
