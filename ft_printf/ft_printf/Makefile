@@ -10,8 +10,14 @@ AR 			= ar rcs
 RM 			= rm -f
 
 FILES 		= 	ft_conversion.c \
+				ft_convert_c.c \
+				ft_convert_d_i.c \
+				ft_convert_p.c \
+				ft_convert_pct.c \
+				ft_convert_s.c \
+				ft_convert_ux.c \
 				ft_initialize.c \
-				ft_partse.c \
+				ft_parse.c \
 				ft_placeholder.c \
 				ft_printf.c
 
@@ -26,15 +32,19 @@ OBJ_DIR 	= ./
 OBJ 		= $(SRCS:%.c=%.o)
 OBJ_BONUS 	= $(SRCS_BONUS:%.c=%.o)
 
-%.o: %.c
-			$(CC) -c $(CFLAGS) -c $< -o $@
-
-$(NAME): 	$(OBJ)
-			$(AR) $(NAME) $(OBJ)
-
 all: $(NAME)
 
-bonus: $(OBJ_BONUS)
+$(NAME): 	$(OBJ) $(LIBFT)
+			$(AR) $(NAME) $(OBJ)
+
+%.c: %.o
+			$(CC) -c $(CFLAGS) -c $< -o $@
+
+$(LIBFT):
+			make -C $(LIBFT_DIR)
+			cp $(LIBFT) $(NAME)
+
+bonus: 		$(OBJ_BONUS)
 			$(AR) $(NAME) $(OBJ_BONUS)
 
 clean:
