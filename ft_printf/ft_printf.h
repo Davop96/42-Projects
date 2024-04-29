@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:29:28 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/04/29 15:07:29 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:50:29 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,8 @@
 
 typedef struct s_format
 {
-	const char	*format;
 	va_list		ap;
-	size_t		i;
-	size_t		len;
 }			t_format;
-
-typedef struct s_holder
-{
-	int		left_justify;
-	char	*prefix;
-	char	padding;
-	int		width;
-	int		precision;
-	char	conversion;
-	char	*argument;
-	size_t	len;
-}			t_holder;
 
 int			ft_printf(const char *format, ...);
 int			ft_vprintf(const char *format, va_list args);
