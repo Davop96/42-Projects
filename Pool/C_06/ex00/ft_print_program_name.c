@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:42:50 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:32:17 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:49:45 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,4 @@ int	main(int argc, char *argv[])
 	ft_putchar('\n');
 	return (0);
 }
+

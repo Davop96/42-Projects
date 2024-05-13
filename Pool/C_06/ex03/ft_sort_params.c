@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:36:31 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/05 12:57:36 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:50:14 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	main(int argc, char *argv[])
 		{
 			if (ft_strcmp(argv[x], argv[y]) > 0)
 			{
-					z = argv[x];
-					argv[x] = argv[y];
-					argv[y] = z;
+				z = argv[x];
+				argv[x] = argv[y];
+				argv[y] = z;
 			}
 		}
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 09:58:45 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:33:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:50:38 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strdup(char *src)
 	char	*str;
 	char	*str2;
 
-	str = "Hola mundo";
+	str = "Hello world";
 	str2 = ft_strdup(str);
 	printf("%s\n", str2);
 	return (0);
