@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 10:15:17 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/04 16:07:32 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:38:31 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,16 @@ void	ft_print_comb(void)
 				c++;
 				if (a != '7')
 					write (1, ", ", 2);
-			}				
+			}
 			b++;
 		}
 		a++;
-	}	
+	}
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_print_comb();
 	return (0);
 }
+ */
