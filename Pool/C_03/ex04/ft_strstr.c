@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:53:07 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:29:34 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:35:10 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*ft_strstr(char *str, char *to_find)
 	char	*str;
 	char	*to_find;
 
-	str = "es malo dormir todo el día";
-	to_find = "dormir";
+	str = "is not healthy to sleep the entire day";
+	to_find = "sleep";
 	printf("%s\n", ft_strstr(str, to_find));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:16:48 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/01 14:00:05 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:34:35 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{	
+{
 	unsigned int	x;
 	unsigned int	y;
 
@@ -36,7 +36,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	if (argc != 4)
 	{
-		printf("Error: Debes introducir dos palabras y un número");
+		printf("Error: You must write at least two words and a number");
 		return (-1);
 	}
 	else

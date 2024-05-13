@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 16:41:42 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:29:52 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:35:52 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 /* int	main(void)
 {
-	char	dest[] = "amigo";
-	char	src[] = "hola";
+	char	dest[] = "friend";
+	char	src[] = "hello";
 	unsigned int	size;
 
 	size = 10;

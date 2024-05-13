@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:33:14 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:27:25 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:31:23 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_strcmp(char *s1, char *s2)
 {
 	if (argc != 3)
 	{
-		printf("Error: Debes introducir dos palabras");
+		printf("Error: You must write at least two words");
 		return (-1);
 	}
 	else

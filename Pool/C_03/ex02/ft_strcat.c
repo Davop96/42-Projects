@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:21:05 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/05 17:35:49 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:34:05 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ char	*ft_strcat(char *dest, char *src)
 
 /* int	main(void)
 {
-	char	dest[] = "Hola mundo, me voy a dormir";
+	char	dest[] = "Hello world, see you";
 	char	*src;
 
-	src = " a la cama";
+	src = " see you";
 	printf("%s\n", ft_strcat(dest, src));
 	return (0);
 }
