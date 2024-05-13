@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:14:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:13:56 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:20:58 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_rev_int_tab(int *tab, int size)
 	ft_rev_int_tab(tab, size);
 	while (i <= size -1)
 	{
-		printf("Los números invertidos son: %d\n", tab[i]);
+		printf("Now the numbers are: %d\n", tab[i]);
 		i++;
 	}
 	return (0);

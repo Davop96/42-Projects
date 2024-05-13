@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:51:54 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/09/30 19:07:40 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:19:58 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_strlen(char *str)
 
 /*int	main(void)
 {
-	char	str[] = "Hola amigo";
+	char	str[] = "Hello friend";
 
-	printf("La longitud de esta palabra es de: ""%d", ft_strlen(str));
+	printf("The length of this word is: ""%d", ft_strlen(str));
 	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 12:24:43 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/09/25 10:29:16 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:16:41 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_swap(int *a, int *b)
 	a = 4;
 	b = 2;
 	ft_swap(&a, &b);
-	printf("El valor de a es: " "%d\n", a);
-	printf("El valor de b es: " "%d\n", b);
+	printf("The value of a is: " "%d\n", a);
+	printf("The value of b is: " "%d\n", b);
 	return (0);
 }
 */

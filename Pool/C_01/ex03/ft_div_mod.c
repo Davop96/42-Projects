@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:24:02 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/09/23 17:24:00 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:18:17 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 	a = 18;
 	b = 4;
 	ft_div_mod(a, b, div, mod);
-	printf("Cociente es: %d\n", *div);
-	printf("Resto es: %d\n", *mod);
+	printf("Result is	: %d\n", *div);
+	printf("Remainder is: %d\n", *mod);
 	return (0);
 }
 */

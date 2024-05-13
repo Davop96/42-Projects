@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:38:21 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/09/25 17:03:27 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:18:59 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putstr(char *str)
 {
 	char	*str;
 
-	str = "Hola amigo";
+	str = "Hello friend";
 	ft_putstr(str);
 }
 */

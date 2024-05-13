@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:10:06 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:14:17 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:21:37 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	ft_sort_int_tab(tab, size);
 	while (i <= size -1)
 	{
-		printf("La lista de números ordenados de menor a mayor es: %d\n", tab[i]);
+		printf("The numbers sorted are: %d\n", tab[i]);
 		i++;
 	}
 	return (0);
