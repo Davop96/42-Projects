@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:20:37 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:22:22 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:21:15 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_str_is_printable(char *str)
 /*int	main(void)
 {
 	int	id;
-	char	cadena[] = "Hola mundo";
+	char	chain[] = "Hello world";
 
-	id = ft_str_is_printable(cadena);
+	id = ft_str_is_printable(chain);
 	printf("%d", id);
 	return (0);
 }

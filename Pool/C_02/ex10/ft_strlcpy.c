@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:51:48 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/09 16:56:04 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:29:43 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 /* int	main(void)
 {
 	char	src[] = "";
-	char	dest[] = "Hasta luego";
-	char	dest_strlcpy[] = "Hasta luego";
+	char	dest[] = "See you";
+	char	dest_strlcpy[] = "See you";
 	unsigned int	size = 0;
-	unsigned int	valor;
+	unsigned int	value;
 
 	valor = ft_strlcpy (dest, src, size);
-	printf("Destino: ""%s y tamaño de origen %u\n", dest, valor);
-	valor = strlcpy(dest_strlcpy, src, size);
-	printf("Destino: ""%s y tamaño de origen %u\n", dest_strlcpy, valor);
+	printf("Dest: ""%s %u\n", dest, value);
+	value = strlcpy(dest_strlcpy, src, size);
+	printf("Dest: ""%s %u\n", dest_strlcpy, value);
 }
  */

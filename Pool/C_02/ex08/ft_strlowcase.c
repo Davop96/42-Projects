@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:20:15 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:23:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:22:51 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_strlowcase(char *str)
 /*int	main(void)
 {
 	char	*str;
-	char	cadena[] = "HoLa MuNdO";
+	char	chain[] = "HeLlO WoRlD";
 
-	str = ft_strlowcase(cadena);
+	str = ft_strlowcase(chain);
 	printf("%s", str);
 	return (0);
 }

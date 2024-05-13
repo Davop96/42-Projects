@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:59:27 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:16:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:19:51 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int	ft_str_is_numeric(char *str)
 			break ;
 		}
 		x++;
-	}	
+	}
 	return (id);
 }
 
 /* int	main(void)
 {
 	char	*str = "777";
-	int	cadena;
+	int	chain;
 
 	cadena = ft_str_is_numeric(str);
-	printf("%i", cadena);
+	printf("%i", chain);
 	return (0);
 }
  */

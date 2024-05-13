@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:49:09 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:21:01 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:21:23 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_str_is_uppercase(char *str)
 /* int	main(void)
 {
 	int	id;
-	char	cadena[] = "HOLAMUNDO";
+	char	chain[] = "HELLOWORLD";
 
-	id = ft_str_is_uppercase(cadena);
+	id = ft_str_is_uppercase(chain);
 	printf("%d", id);
 	return (0);
 }

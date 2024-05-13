@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:35:32 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:21:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 14:20:12 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_str_is_lowercase(char *str)
 /* int	main(void)
 {
 	int	id;
-	char	cadena[] = "holamundo";
+	char	chain[] = "helloworld";
 
-	id = ft_str_is_lowercase(cadena);
+	id = ft_str_is_lowercase(chain);
 	printf("%d", id);
 	return (0);
 }
