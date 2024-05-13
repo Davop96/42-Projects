@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:28:06 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/03 15:43:53 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:47:34 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_fibonacci(int index)
 	int	index;
 
 	index = 8;
-	printf("El enésimo elemento de Fibonacci es: %d\n", ft_fibonacci(index));
+	printf("%d\n", ft_fibonacci(index));
 	return (0);
 }
  */

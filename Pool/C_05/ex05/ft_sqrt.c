@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:20:32 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/04 10:31:52 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:48:03 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_sqrt(int nb)
 	int	nb;
 
 	nb = 25;
-	printf("La raíz de %d es: %d\n", nb, ft_sqrt(nb));
+	printf("%d is: %d\n", nb, ft_sqrt(nb));
 	return (0);
 }
  */

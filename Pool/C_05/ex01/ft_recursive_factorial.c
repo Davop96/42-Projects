@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:39 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/04 10:30:20 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:46:13 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_recursive_factorial(int nb)
 	else
 	{
 		return (nb * ft_recursive_factorial(nb - 1));
-	}	
+	}
 }
 
 /* int	main(void)
@@ -33,7 +33,7 @@ int	ft_recursive_factorial(int nb)
 	int	nb;
 
 	nb = 0;
-	printf("El factorial de %d es: %d\n", nb, ft_recursive_factorial(nb));
+	printf("The factorial of %d is: %d\n", nb, ft_recursive_factorial(nb));
 	return (0);
 }
  */

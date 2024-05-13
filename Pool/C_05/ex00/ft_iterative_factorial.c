@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:31:58 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/04 10:29:41 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:45:56 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_iterative_factorial(int nb)
 	int	nb;
 
 	nb = 0;
-	printf("El factorial de %d es: %d\n", nb, ft_iterative_factorial(nb));
+	printf("The factorial of %d is: %d\n", nb, ft_iterative_factorial(nb));
 	return (0);
 }
  */

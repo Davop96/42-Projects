@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:18:44 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/03 15:44:50 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:46:55 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_iterative_power(int nb, int power)
 
 	nb = 2;
 	power = 5;
-	printf("%d elevado a %d es: %d\n", nb, power, ft_iterative_power(nb, power));
+	printf("%d %d is: %d\n", nb, power, ft_iterative_power(nb, power));
 	return (0);
 }
  */

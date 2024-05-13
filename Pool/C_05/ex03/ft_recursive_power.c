@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:09:02 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2023/10/03 15:45:23 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:47:12 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_recursive_power(int nb, int power)
 
 	nb = 2;
 	power = 4;
-	printf("%d elevado a %d es: %d\n", nb, power, ft_recursive_power(nb, power));
+	printf("%d %d is: %d\n", nb, power, ft_recursive_power(nb, power));
 	return (0);
 }
  */
