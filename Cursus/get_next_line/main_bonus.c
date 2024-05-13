@@ -6,13 +6,8 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:07:57 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/13 15:42:19 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:49:33 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-int	main(void)
-{
-
-}
