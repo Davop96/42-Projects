@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:59:25 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/13 15:38:47 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:55:07 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int		fd;
 	char	*line;
 
-	fd = open("example.txt", O_RDONLY);
+	fd = open("test/example.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("Error opening file");
