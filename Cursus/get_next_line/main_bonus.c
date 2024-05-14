@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:07:57 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/14 17:07:54 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:17:25 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	read_and_print_lines(int fd1, int fd2, int fd3)
 	}
 }
 
-
 int	main(void)
 {
 	int		fd1;
@@ -49,5 +48,3 @@ int	main(void)
 	close(fd3);
 	return (0);
 }
-
-
