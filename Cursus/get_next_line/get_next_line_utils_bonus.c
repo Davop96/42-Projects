@@ -6,64 +6,83 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:56:14 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/13 16:23:14 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:28:12 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*ft_strchr(const char *s, int c)
+size_t	ft_strlen(char *s)
 {
-	while (*s != (char)c)
-	{
-		if (!*s++)
-			return (NULL);
-	}
-	return ((char *)s);
+	size_t		i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
-static char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strchr(char *s, int c)
 {
-	char	*str;
-	size_t	len_s1;
-	size_t	len_s2;
-	size_t	i;
-	size_t	j;
+	int		i;
 
-	len_s1 = 0;
-	while (s1[len_s1])
-		len_s1++;
-	len_s2 = 0;
-	while (s2[len_s2])
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
 	{
-		len_s2++;
-		
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	if (!(str = malloc(len_s1 + len_s2 + 1)))
+	return (0);
+}
+
+char	*ft_strjoin(char *left_str, char *buff)
+{
+	size_t		i;
+	size_t		j;
+	char		*str;
+
+	if (!left_str)
+	{
+		left_str = (char *)malloc(1 * sizeof(char));
+		left_str[0] = '\0';
+	}
+	if (!left_str || !buff)
+		return (NULL);
+	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
+	if (str == NULL)
 		return (NULL);
 	i = -1;
-	while (++i < len_s1)
-		str[i] = s1[i];
 	j = 0;
-	while (j < len_s2)
-		str[i++] = s2[j++];
-	str[i] = '\0';
+	if (left_str)
+		while (left_str[++i] != '\0')
+			str[i] = left_str[i];
+	while (buff[j] != '\0')
+		str[i++] = buff[j++];
+	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
+	free(left_str);
 	return (str);
 }
 
-static char *ft_strdup(const char *s)
+char	*ft_get_line(char *left_str)
 {
-    char *copy;
-    int i;
+	int		i;
+	char	*str;
 
-    i = 0;
-    while (s[i])
-        i++;
-    if (!(copy = malloc(i + 1)))
-        return (NULL);
-    i = -1;
-    while (s[++i])
-        copy[i] = s[i];
-    copy[i] = '\0';
-    return (copy);
+	i = 0;
+	if (!left_str[i])
+		return (NULL);
+	while (left_str[i] && left_str[i] != '\n')
+	{
+		str[i] = left_str[i];
+		i++;
+	}
+	if (left_str[i] == '\n')
+	
 }
