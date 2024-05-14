@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:55:48 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/14 12:02:09 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:38:58 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 10
 # endif
 
 # include <unistd.h>
@@ -29,11 +29,10 @@ typedef struct s_list
 }				t_list;
 
 char				*get_next_line(int fd);
-char				*ft_strchr(char *s, int c);
-char				*ft_strjoin(char *left_str, char *buff);
-char				*ft_read_left_str(int fd, char *left_str);
-char				*ft_get_line(char *left_str);
-char				*ft_new_left_str(char *left_str);
-size_t				ft_strlen(char *s);
+size_t				ft_strlen(const char *s);
+void				*ft_calloc(size_t count, size_t size);
+char				*ft_strjoin(char const *s1, char const *s2);
+void				*ft_memset(void *b, int c, size_t len);
+void				safe_free(char *str);
 
 #endif
