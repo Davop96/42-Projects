@@ -6,15 +6,11 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:48:38 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/07 12:31:22 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:41:28 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static char	*_fill_line_buffer(int fd, char *left_c, char *buffer);
-static char	*_set_line(char *line);
-static char	*ft_strchr(char *s, int c);
 
 static char	*ft_strchr(char *s, int c)
 {
