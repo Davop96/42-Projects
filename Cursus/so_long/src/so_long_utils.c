@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:45:28 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/30 17:10:16 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:34:30 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*get_next_map_line(int fd)
 {
 	char	*line;
 
+	line = NULL;
 	line = get_next_line(fd);
 	if (line)
 		return (line);
@@ -31,7 +32,7 @@ int	determine_map_dimensions(int fd, int *width, int *height)
 
 	*width = 0;
 	*height = 0;
-	*line = get_next_map_line(fd);
+	line = get_next_map_line(fd);
 	while (line != NULL)
 	{
 		line_length = ft_strlen(line);

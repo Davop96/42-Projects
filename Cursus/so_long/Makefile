@@ -6,7 +6,7 @@
 #    By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 11:08:02 by dbohoyo-          #+#    #+#              #
-#    Updated: 2024/05/30 17:00:46 by dbohoyo-         ###   ########.fr        #
+#    Updated: 2024/05/31 10:58:41 by dbohoyo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,15 @@ OBJS			= $(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o) \
 INCLUDES 		= -I$(MLX42) -I$(MLX42)/include -I$(PRINTF) -I$(GNL)
 LIBS 			= -L$(MLX42)/lib -lmlx42 -lglfw -ldl -lm -lpthread
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(PRINTF)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(GNL)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 

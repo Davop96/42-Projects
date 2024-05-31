@@ -6,14 +6,12 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/30 17:04:30 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:07:06 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "get_next_line.h"
 #include "ft_printf.h"
-#include "MLX42.h"
 
 void	load_textures(t_game *game)
 {
@@ -46,10 +44,9 @@ void	create_images(t_game *game)
 	}
 }
 
-int	initialize_mlx(t_game *game, int map_width, int map_height, int TILE_SIZE)
+int	initialize_mlx(t_game *game)
 {
-	game->mlx = mlx_init(map_width * TILE_SIZE, map_height * TILE_SIZE,
-			"so_long", false);
+	game->mlx = mlx_init(800, 600, "Pokemon", false);
 	if (!game->mlx)
 	{
 		ft_printf("Error: Failed to initialize MLX\n");
@@ -57,3 +54,4 @@ int	initialize_mlx(t_game *game, int map_width, int map_height, int TILE_SIZE)
 	}
 	return (0);
 }
+

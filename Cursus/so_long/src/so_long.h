@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/30 17:13:48 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:04:22 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "MLX42.h"
+# include "./MLX42/MLX42.h"
+
 
 typedef struct s_mlx {
 }	t_mlx;
@@ -30,15 +31,15 @@ typedef struct s_mlx_image {
 }	t_mlx_image;
 
 typedef struct s_game {
-	t_mlx			*mlx;
-	t_mlx_texture	*player_texture;
-	t_mlx_texture	*wall_texture;
-	t_mlx_texture	*collectible_texture;
-	t_mlx_texture	*exit_texture;
-	t_mlx_image		*player_image;
-	t_mlx_image		*wall_image;
-	t_mlx_image		*collectible_image;
-	t_mlx_image		*exit_image;
+	mlx_t			*mlx;
+	mlx_texture_t	*player_texture;
+	mlx_texture_t	*wall_texture;
+	mlx_texture_t	*collectible_texture;
+	mlx_texture_t	*exit_texture;
+	mlx_image_t		*player_image;
+	mlx_image_t		*wall_image;
+	mlx_image_t		*collectible_image;
+	mlx_image_t		*exit_image;
 	char			**map;
 	int				map_width;
 	int				map_height;
@@ -54,7 +55,6 @@ void		free_map_memory(char **map, int height);
 char		*ft_strcpy(char *dest, const char *src);
 void		load_textures(t_game *game);
 void		create_images(t_game *game);
-int			initialize_mlx(t_game *game, int map_width,
-				int map_height, int TILE_SIZE);
+int			initialize_mlx(t_game *game);
 
 #endif

@@ -6,13 +6,12 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/30 17:07:47 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:18:11 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "ft_printf.h"
-#include "MLX42.h"
 
 #define TILE_SIZE 32
 
@@ -36,7 +35,7 @@ void	populate_map(int fd, char **map, int height)
 	char	*line;
 
 	i = 0;
-	*line = get_next_map_line(fd);
+	line = get_next_map_line(fd);
 	while (i < height && line != NULL)
 	{
 		ft_strcpy(map[i], line);
@@ -58,7 +57,7 @@ char	**read_map(const char *filename, int *width, int *height)
 		exit(EXIT_FAILURE);
 	}
 	*width = determine_map_dimensions(fd, width, height);
-	**map = allocate_map_memory(*width, *height);
+	map = allocate_map_memory(*width, *height);
 	populate_map(fd, map, *height);
 	close(fd);
 	return (map);
@@ -79,7 +78,7 @@ int	main(int argc, char **argv)
 		ft_printf("Error: Failed to read map\n");
 		return (1);
 	}
-	if (initialize_mlx(&game, game.map_width, game.map_height, TILE_SIZE))
+	if (initialize_mlx(&game))
 	{
 		free_map_memory(game.map, game.map_height);
 		return (1);
