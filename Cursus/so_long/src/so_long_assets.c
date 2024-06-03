@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/31 13:07:06 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:33:35 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	load_textures(t_game *game)
 {
-	game->player_texture = mlx_load_png("path_to_player_texture.png");
-	game->wall_texture = mlx_load_png("path_to_wall_texture.png");
-	game->collectible_texture = mlx_load_png("path_to_collectible_texture.png");
-	game->exit_texture = mlx_load_png("path_to_exit_texture.png");
+	game->player_texture = mlx_load_png("./assets/characters/Brendan-1.png");
+	game->wall_texture = mlx_load_png("./assets/maps/map.png");
+	game->collectible_texture = mlx_load_png("./assets/collec/ball-1.png");
+	game->exit_texture = mlx_load_png("./assets/misc/exit.png");
 
 	if (!game->player_texture || !game->wall_texture
 		|| !game->collectible_texture || !game->exit_texture)
@@ -46,7 +46,7 @@ void	create_images(t_game *game)
 
 int	initialize_mlx(t_game *game)
 {
-	game->mlx = mlx_init(800, 600, "Pokemon", false);
+	game->mlx = mlx_init(800, 600, "GTA VI", false);
 	if (!game->mlx)
 	{
 		ft_printf("Error: Failed to initialize MLX\n");
