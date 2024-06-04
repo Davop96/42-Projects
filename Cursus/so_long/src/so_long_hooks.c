@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 12:57:47 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:51:48 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,3 @@ void	handle_input(t_game *game, int key)
 	if (key == MLX_KEY_ESCAPE) close_window(game);
 }
 
-void	initialize_hooks(t_game *game)
-{
-	mlx_key_hook(game->mlx, handle_input, game);
-	mlx_close_hook(game->mlx, close_window, game);
-}

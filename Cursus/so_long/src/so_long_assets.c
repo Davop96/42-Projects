@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/03 16:33:35 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:51:10 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,4 @@ void	create_images(t_game *game)
 	}
 }
 
-int	initialize_mlx(t_game *game)
-{
-	game->mlx = mlx_init(800, 600, "GTA VI", false);
-	if (!game->mlx)
-	{
-		ft_printf("Error: Failed to initialize MLX\n");
-		return (1);
-	}
-	return (0);
-}
 

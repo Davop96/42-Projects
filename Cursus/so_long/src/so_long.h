@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/05/31 14:56:46 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:50:38 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct s_game {
 	char			**map;
 	int				map_width;
 	int				map_height;
+	int				player_x;
+	int				player_y;
+	int				collectibles;
+	int				moves;
 }	t_game;
 
 char		**read_map(const char *filename, int *width, int *height);
@@ -56,5 +60,12 @@ char		*ft_strcpy(char *dest, const char *src);
 void		load_textures(t_game *game);
 void		create_images(t_game *game);
 int			initialize_mlx(t_game *game);
+void		load_textures(t_game *game);
+void		handle_input(t_game *game, int key);
+void		move_player(t_game *game, int new_x, int new_y);
+void		close_window(t_game *game);
+void		find_player_and_collectibles(t_game *game);
+void		start_game(t_game *game);
+void		initialize_game(t_game *game);
 
 #endif

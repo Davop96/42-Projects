@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 12:45:28 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/03 16:11:13 by dbohoyo-         ###   ########.fr       */
+/*   Created: 2024/06/04 14:29:24 by dbohoyo-          #+#    #+#             */
+/*   Updated: 2024/06/04 14:29:26 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,85 +14,50 @@
 #include "get_next_line.h"
 #include "ft_printf.h"
 
-char	*get_next_map_line(int fd)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	char	*line;
+	int		i;
 
-	line = NULL;
-	line = get_next_line(fd);
-	if (line)
-		return (line);
-	return (NULL);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
-int	determine_map_dimensions(int fd, int *width, int *height)
+void	populate_map(int fd, char **map, int height)
 {
+	int		i;
 	char	*line;
-	int		line_length;
 
-	*width = 0;
-	*height = 0;
+	i = 0;
 	line = get_next_map_line(fd);
-	while (line != NULL)
+	while (i < height && line != NULL)
 	{
-		line_length = ft_strlen(line);
-		if (line_length > *width)
-			*width = line_length;
-		(*height)++;
+		ft_strcpy(map[i], line);
 		free(line);
+		i++;
 		line = get_next_map_line(fd);
 	}
-	close(fd);
-	fd = open("./assets/maps/map.ber", O_RDONLY);
+}
+
+char	**read_map(const char *filename, int *width, int *height)
+{
+	int		fd;
+	char	**map;
+
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
 		perror("Error: ");
 		exit(EXIT_FAILURE);
 	}
-	return (*width);
-}
-
-void	allocate_rows(char **map, int width, int height, int current_row)
-{
-	if (current_row < height)
-	{
-		map[current_row] = malloc((width + 1) * sizeof(char));
-		if (!map[current_row])
-		{
-			perror("Error: ");
-			exit(EXIT_FAILURE);
-		}
-		allocate_rows(map, width, height, current_row + 1);
-	}
-}
-
-char	**allocate_map_memory(int width, int height)
-{
-	char	**map;
-
-	map = malloc(height * sizeof(char *));
-	if (!map)
-	{
-		perror("Error: ");
-		exit(EXIT_FAILURE);
-	}
-
-	allocate_rows(map, width, height, 0);
+	*width = determine_map_dimensions(fd, width, height);
+	map = allocate_map_memory(*width, *height);
+	populate_map(fd, map, *height);
+	close(fd);
 	return (map);
-}
-
-
-void	free_map_memory(char **map, int height)
-{
-	int	i;
-
-	if (!map)
-		return ;
-	i = 0;
-	while (i < height)
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }

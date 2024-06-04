@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/03 16:40:38 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:44:45 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,39 @@
 
 #define TILE_SIZE 32
 
-char	*ft_strcpy(char *dest, const char *src)
+void	find_player_and_collectibles(t_game *game)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (i < game->map_height)
 	{
-		dest[i] = src[i];
+		j = 0;
+		while (j < game->map_width)
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player_x = j;
+				game->player_y = i;
+			}
+			else if (game->map[i][j] == 'C')
+				game->collectibles++;
+			j++;
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
 }
 
-void	populate_map(int fd, char **map, int height)
+void	start_game(t_game *game)
 {
-	int		i;
-	char	*line;
-
-	i = 0;
-	line = get_next_map_line(fd);
-	while (i < height && line != NULL)
-	{
-		ft_strcpy(map[i], line);
-		free(line);
-		i++;
-		line = get_next_map_line(fd);
-	}
+	load_textures(game);
+	create_images(game);
+	initialize_hooks(game);
+	mlx_loop(game->mlx);
+	free_map_memory(game->map, game->map_height);
 }
 
-char	**read_map(const char *filename, int *width, int *height)
-{
-	int		fd;
-	char	**map;
-
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error: ");
-		exit(EXIT_FAILURE);
-	}
-	*width = determine_map_dimensions(fd, width, height);
-	map = allocate_map_memory(*width, *height);
-	populate_map(fd, map, *height);
-	close(fd);
-	return (map);
-}
 
 int	main(int argc, char **argv)
 {
@@ -72,23 +58,23 @@ int	main(int argc, char **argv)
 		ft_printf("Usage: %s <map_file.ber>\n", argv[0]);
 		return (1);
 	}
+	initialize_game(&game);
 	game.map = read_map(argv[1], &game.map_width, &game.map_height);
 	if (!game.map)
 	{
 		ft_printf("Error: Failed to read map\n");
 		return (1);
 	}
+	find_player_and_collectibles(&game);
 	if (initialize_mlx(&game))
 	{
 		free_map_memory(game.map, game.map_height);
 		return (1);
 	}
-	load_textures(&game);
-	create_images(&game);
-	mlx_loop(game.mlx);
-	free_map_memory(game.map, game.map_height);
+	start_game(&game);
 	return (0);
 }
+
 
 
 
