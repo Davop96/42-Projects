@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 14:51:48 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:03:05 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,18 @@ void	move_player(t_game *game, int new_x, int new_y)
 	ft_printf("Moves: %d\n", game->moves);
 }
 
-void	handle_input(t_game *game, int key) 
+void	handle_input(t_game *game, int key)
 {
-	if (key == MLX_KEY_W) move_player(game, game->player_x, game->player_y - 1);
-	if (key == MLX_KEY_A) move_player(game, game->player_x - 1, game->player_y);
-	if (key == MLX_KEY_S) move_player(game, game->player_x, game->player_y + 1);
-	if (key == MLX_KEY_D) move_player(game, game->player_x + 1, game->player_y);
-	if (key == MLX_KEY_ESCAPE) close_window(game);
+	if (key == MLX_KEY_W)
+		move_player(game, game->player_x, game->player_y - 1);
+	if (key == MLX_KEY_A)
+		move_player(game, game->player_x - 1, game->player_y);
+	if (key == MLX_KEY_S)
+		move_player(game, game->player_x, game->player_y + 1);
+	if (key == MLX_KEY_D)
+		move_player(game, game->player_x + 1, game->player_y);
+	if (key == MLX_KEY_ESCAPE)
+		close_window(game);
 }
+
 
