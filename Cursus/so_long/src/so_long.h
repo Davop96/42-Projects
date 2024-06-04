@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:03:52 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:31:51 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,17 @@ void		allocate_rows(char **map, int width, int height, int current_row);
 void		populate_map(int fd, char **map, int height);
 void		free_map_memory(char **map, int height);
 char		*ft_strcpy(char *dest, const char *src);
+void		key_hook(mlx_key_data_t keydata, void *param);
+void		handle_input(mlx_key_data_t keydata, void *param);
 void		load_textures(t_game *game);
 void		create_images(t_game *game);
-int			initialize_mlx(t_game *game);
 void		load_textures(t_game *game);
-void		handle_input(t_game *game, int key);
 void		move_player(t_game *game, int new_x, int new_y);
 void		close_window(t_game *game);
 void		find_player_and_collectibles(t_game *game);
 void		start_game(t_game *game);
+int			initialize_mlx(t_game *game);
+void		initialize_hooks(t_game *game);
 void		initialize_game(t_game *game);
 
 #endif

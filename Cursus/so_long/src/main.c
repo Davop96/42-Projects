@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 14:44:45 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:25:44 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	find_player_and_collectibles(t_game *game)
 	int		j;
 
 	i = 0;
+	game->collectibles = 0;
 	while (i < game->map_height)
 	{
 		j = 0;

@@ -6,19 +6,21 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 14:51:10 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:07:22 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "ft_printf.h"
 
+#define TILE_SIZE 32
+
 void	load_textures(t_game *game)
 {
-	game->player_texture = mlx_load_png("./assets/characters/Brendan-1.png");
-	game->wall_texture = mlx_load_png("./assets/maps/map.png");
-	game->collectible_texture = mlx_load_png("./assets/collec/ball-1.png");
-	game->exit_texture = mlx_load_png("./assets/misc/exit.png");
+	game->player_texture = mlx_load_png("assets/characters/brendan-1.png");
+	game->wall_texture = mlx_load_png("assets/maps/map.png");
+	game->collectible_texture = mlx_load_png("assets/collec/ball-1.png");
+	game->exit_texture = mlx_load_png("assets/misc/exit.png");
 
 	if (!game->player_texture || !game->wall_texture
 		|| !game->collectible_texture || !game->exit_texture)
@@ -43,5 +45,10 @@ void	create_images(t_game *game)
 		exit(1);
 	}
 }
+
+//void	render_images(t_game *game)
+
+
+
 
 

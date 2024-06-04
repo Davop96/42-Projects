@@ -6,13 +6,14 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:03:05 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:59:44 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "ft_printf.h"
 
-void	close_windows(t_game *game)
+void	close_window(t_game *game)
 {
 	ft_printf("Game Over\n");
 	mlx_terminate(game->mlx);
@@ -43,8 +44,14 @@ void	move_player(t_game *game, int new_x, int new_y)
 	ft_printf("Moves: %d\n", game->moves);
 }
 
-void	handle_input(t_game *game, int key)
+void	handle_input(mlx_key_data_t keydata, void *param)
 {
+	t_game	*game;
+	int		key;
+
+	game = (t_game *)param;
+	key = keydata.key;
+
 	if (key == MLX_KEY_W)
 		move_player(game, game->player_x, game->player_y - 1);
 	if (key == MLX_KEY_A)
@@ -56,5 +63,11 @@ void	handle_input(t_game *game, int key)
 	if (key == MLX_KEY_ESCAPE)
 		close_window(game);
 }
+
+void	key_hook(mlx_key_data_t keydata, void *param)
+{
+	handle_input(keydata, param);
+}
+
 
 
