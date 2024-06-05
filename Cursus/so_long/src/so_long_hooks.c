@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_hooks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:59:44 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:11:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "ft_printf.h"
 
 void	close_window(t_game *game)
 {
@@ -47,20 +46,19 @@ void	move_player(t_game *game, int new_x, int new_y)
 void	handle_input(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
-	int		key;
 
 	game = (t_game *)param;
-	key = keydata.key;
-
-	if (key == MLX_KEY_W)
+	if (keydata.action != MLX_PRESS)
+		return;
+	if (keydata.key == MLX_KEY_W)
 		move_player(game, game->player_x, game->player_y - 1);
-	if (key == MLX_KEY_A)
+	else if (keydata.key == MLX_KEY_A)
 		move_player(game, game->player_x - 1, game->player_y);
-	if (key == MLX_KEY_S)
+	else if (keydata.key == MLX_KEY_S)
 		move_player(game, game->player_x, game->player_y + 1);
-	if (key == MLX_KEY_D)
+	else if (keydata.key == MLX_KEY_D)
 		move_player(game, game->player_x + 1, game->player_y);
-	if (key == MLX_KEY_ESCAPE)
+	else if (keydata.key == MLX_KEY_ESCAPE)
 		close_window(game);
 }
 

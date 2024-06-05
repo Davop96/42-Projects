@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:31:51 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/05 19:58:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "./MLX42/MLX42.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 
 typedef struct s_mlx {
@@ -49,6 +51,7 @@ typedef struct s_game {
 	int				moves;
 }	t_game;
 
+// Funciones relacionadas con el mapa
 char		**read_map(const char *filename, int *width, int *height);
 char		*get_next_map_line(int fd);
 int			determine_map_dimensions(int fd, int *width, int *height);
@@ -56,13 +59,17 @@ char		**allocate_map_memory(int width, int height);
 void		allocate_rows(char **map, int width, int height, int current_row);
 void		populate_map(int fd, char **map, int height);
 void		free_map_memory(char **map, int height);
+// Utilidades
 char		*ft_strcpy(char *dest, const char *src);
+// Manejo de entradas
 void		key_hook(mlx_key_data_t keydata, void *param);
 void		handle_input(mlx_key_data_t keydata, void *param);
+// Gestión de gráficos y texturas
 void		load_textures(t_game *game);
 void		create_images(t_game *game);
-void		load_textures(t_game *game);
+// Movimientos del jugador
 void		move_player(t_game *game, int new_x, int new_y);
+// Inicialización y cierre del juego
 void		close_window(t_game *game);
 void		find_player_and_collectibles(t_game *game);
 void		start_game(t_game *game);

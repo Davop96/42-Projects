@@ -3,22 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 14:29:07 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:06:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "get_next_line.h"
-#include "ft_printf.h"
 
 char	*get_next_map_line(int fd)
 {
 	char	*line;
 
-	line = NULL;
 	line = get_next_line(fd);
 	if (line)
 		return (line);
@@ -36,6 +33,8 @@ int	determine_map_dimensions(int fd, int *width, int *height)
 	while (line != NULL)
 	{
 		line_length = ft_strlen(line);
+		if (line[line_length - 1] == '\n')
+			line_length--;
 		if (line_length > *width)
 			*width = line_length;
 		(*height)++;
@@ -46,7 +45,7 @@ int	determine_map_dimensions(int fd, int *width, int *height)
 	fd = open("./assets/maps/map.ber", O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error: ");
+		perror("Error re-opening file");
 		exit(EXIT_FAILURE);
 	}
 	return (*width);
@@ -59,7 +58,7 @@ void	allocate_rows(char **map, int width, int height, int current_row)
 		map[current_row] = malloc((width + 1) * sizeof(char));
 		if (!map[current_row])
 		{
-			perror("Error: ");
+			perror("Error allocating row memory");
 			exit(EXIT_FAILURE);
 		}
 		allocate_rows(map, width, height, current_row + 1);
@@ -73,7 +72,7 @@ char	**allocate_map_memory(int width, int height)
 	map = malloc(height * sizeof(char *));
 	if (!map)
 	{
-		perror("Error: ");
+		perror("Error allocating map memory");
 		exit(EXIT_FAILURE);
 	}
 

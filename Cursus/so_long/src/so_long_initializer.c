@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_initializer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:57:05 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:07:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "ft_printf.h"
 
 int	initialize_mlx(t_game *game)
 {
