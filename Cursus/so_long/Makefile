@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 11:08:02 by dbohoyo-          #+#    #+#              #
-#    Updated: 2024/06/06 00:46:41 by marvin           ###   ########.fr        #
+#    Updated: 2024/06/06 01:42:01 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ OBJ_DIR			= obj
 
 SRC_FILES		= 	$(SRC_DIR)/main.c $(SRC_DIR)/so_long_utils.c \
 					$(SRC_DIR)/so_long_map.c $(SRC_DIR)/so_long_assets.c \
-					$(SRC_DIR)/so_long_hooks.c $(SRC_DIR)/so_long_initializer.c
+					$(SRC_DIR)/so_long_hooks.c $(SRC_DIR)/so_long_initializer.c \
+					$(SRC_DIR)/so_long_screens.c
 
 OBJS			= 	$(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

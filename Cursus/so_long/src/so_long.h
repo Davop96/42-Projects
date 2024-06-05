@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 00:47:17 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 01:38:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ char		*ft_strcpy(char *dest, const char *src);
 // Manejo de entradas
 void		key_hook(mlx_key_data_t keydata, void *param);
 void		handle_input(mlx_key_data_t keydata, void *param);
+void		key_hook_disclaimer(mlx_key_data_t keydata, void *param);
+// Pantallas
+void		show_disclaimer(mlx_t *mlx);
+void		show_main_menu(mlx_t *mlx);
 // Gestión de gráficos y texturas
 void		load_textures(t_game *game);
 void		create_images(t_game *game);
@@ -65,6 +69,7 @@ void		move_player(t_game *game, int new_x, int new_y);
 // Inicialización y cierre del juego
 void		close_window(t_game *game);
 void		find_player_and_collectibles(t_game *game);
+void		render_map(t_game *game);
 void		start_game(t_game *game);
 int			initialize_mlx(t_game *game);
 void		initialize_hooks(t_game *game);

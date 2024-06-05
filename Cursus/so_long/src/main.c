@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 00:44:00 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 01:40:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,10 @@ void	render_map(t_game *game)
 
 void	start_game(t_game *game)
 {
+	show_disclaimer(game->mlx);
 	load_textures(game);
 	create_images(game);
+	render_map(game);
 	initialize_hooks(game);
 	mlx_loop(game->mlx);
 	free_map_memory(game->map, game->map_height);
