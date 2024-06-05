@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/05 20:14:12 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 00:42:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	create_images(t_game *game)
 	}
 }
 
-//void	render_images(t_game *game)
 
 
 

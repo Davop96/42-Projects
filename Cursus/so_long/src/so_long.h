@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/05 19:58:21 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 00:47:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,10 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
+# define TILE_SIZE 32
 
-typedef struct s_mlx {
-}	t_mlx;
-
-typedef struct s_mlx_texture {
-}	t_mlx_texture;
-
-typedef struct s_mlx_image {
-}	t_mlx_image;
-
-typedef struct s_game {
+typedef struct s_game 
+{
 	mlx_t			*mlx;
 	mlx_texture_t	*player_texture;
 	mlx_texture_t	*wall_texture;

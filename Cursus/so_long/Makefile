@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 11:08:02 by dbohoyo-          #+#    #+#              #
-#    Updated: 2024/06/04 14:52:51 by dbohoyo-         ###   ########.fr        #
+#    Updated: 2024/06/06 00:46:41 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
+NAME 			= so_long
 
 CC 				= gcc
 CFLAGS 			= -Wall -Wextra -Werror
@@ -19,11 +19,12 @@ LIBFT			= ./libft
 RM 				= rm -f
 
 SRC_DIR			= src
+OBJ_DIR			= obj
+
 SRC_FILES		= 	$(SRC_DIR)/main.c $(SRC_DIR)/so_long_utils.c \
 					$(SRC_DIR)/so_long_map.c $(SRC_DIR)/so_long_assets.c \
-					$(SRC_DIR)/so_long_parse.c $(SRC_DIR)/so_long_hooks.c \
-					$(SRC_DIR)/so_long_initializer.c
-OBJ_DIR			= obj
+					$(SRC_DIR)/so_long_hooks.c $(SRC_DIR)/so_long_initializer.c
+
 OBJS			= 	$(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDES 		= -I$(MLX42)/include -I$(LIBFT)/include

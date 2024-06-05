@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/04 16:25:44 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 00:44:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "ft_printf.h"
-
-#define TILE_SIZE 32
 
 void	find_player_and_collectibles(t_game *game)
 {
@@ -34,6 +31,30 @@ void	find_player_and_collectibles(t_game *game)
 			}
 			else if (game->map[i][j] == 'C')
 				game->collectibles++;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	render_map(t_game *game)
+{
+	int i = 0;
+	int j;
+
+	while (i < game->map_height)
+	{
+		j = 0;
+		while (j < game->map_width)
+		{
+			if (game->map[i][j] == '1')
+				mlx_image_to_window(game->mlx, game->wall_image, j * TILE_SIZE, i * TILE_SIZE);
+			else if (game->map[i][j] == 'C')
+				mlx_image_to_window(game->mlx, game->collectible_image, j * TILE_SIZE, i * TILE_SIZE);
+			else if (game->map[i][j] == 'E')
+				mlx_image_to_window(game->mlx, game->exit_image, j * TILE_SIZE, i * TILE_SIZE);
+			else if (game->map[i][j] == 'P')
+				mlx_image_to_window(game->mlx, game->player_image, j * TILE_SIZE, i * TILE_SIZE);
 			j++;
 		}
 		i++;
