@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 12:21:48 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:45:11 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ typedef struct s_game
 	mlx_t			*mlx;
 	mlx_texture_t	*player_texture;
 	mlx_texture_t	*wall_texture;
+	mlx_texture_t	*ground_texture;
 	mlx_texture_t	*collectible_texture;
 	mlx_texture_t	*exit_texture;
 	mlx_image_t		*player_image;
 	mlx_image_t		*wall_image;
+	mlx_image_t		*ground_image;
 	mlx_image_t		*collectible_image;
 	mlx_image_t		*exit_image;
 	mlx_image_t		*disclaimer_image;
@@ -65,6 +67,7 @@ void		show_disclaimer(t_game *game);
 
 // Gestión de gráficos y texturas
 void		load_textures(t_game *game);
+void		verify_images(t_game *game);
 void		create_images(t_game *game);
 // Movimientos del jugador
 void		move_player(t_game *game, int new_x, int new_y);
