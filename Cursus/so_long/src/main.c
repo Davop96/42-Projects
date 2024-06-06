@@ -6,65 +6,11 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 12:28:21 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:08:41 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	find_player_and_collectibles(t_game *game)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	game->collectibles = 0;
-	while (i < game->map_height)
-	{
-		j = 0;
-		while (j < game->map_width)
-		{
-			if (game->map[i][j] == 'P')
-			{
-				game->player_x = j;
-				game->player_y = i;
-			}
-			else if (game->map[i][j] == 'C')
-				game->collectibles++;
-			j++;
-		}
-		i++;
-	}
-}
-
-void	render_map(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map_height)
-	{
-		j = 0;
-		while (j < game->map_width)
-		{
-			if (game->map[i][j] == '1')
-				mlx_image_to_window(game->mlx, game->wall_image, j
-					* TILE_SIZE, i * TILE_SIZE);
-			else if (game->map[i][j] == 'C')
-				mlx_image_to_window(game->mlx, game->collectible_image, j
-					* TILE_SIZE, i * TILE_SIZE);
-			else if (game->map[i][j] == 'E')
-				mlx_image_to_window(game->mlx, game->exit_image, j
-					* TILE_SIZE, i * TILE_SIZE);
-			else if (game->map[i][j] == 'P')
-				mlx_image_to_window(game->mlx, game->player_image, j
-					* TILE_SIZE, i * TILE_SIZE);
-			j++;
-		}
-		i++;
-	}
-}
 
 void	start_game(t_game *game)
 {
@@ -74,6 +20,20 @@ void	start_game(t_game *game)
 	initialize_hooks(game);
 	mlx_loop(game->mlx);
 	free_map_memory(game->map, game->map_height);
+}
+
+void	close_window(t_game *game)
+{
+	ft_printf("Game Over\n");
+	mlx_terminate(game->mlx);
+	free_map_memory(game->map, game->map_height);
+	exit(0);
+}
+
+void	create_images(t_game *game)
+{
+	load_textures(game);
+	verify_images(game);
 }
 
 int	main(int argc, char **argv)

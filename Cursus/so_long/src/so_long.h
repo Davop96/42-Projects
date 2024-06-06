@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 14:45:11 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:44:56 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,32 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-# define TILE_SIZE 32
+# define TILE_SIZE 64
+
+typedef struct s_textures
+{
+	mlx_texture_t	*player;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*ground;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*exit;
+}	t_textures;
+
+typedef struct s_images
+{
+	mlx_image_t		*player;
+	mlx_image_t		*wall;
+	mlx_image_t		*ground;
+	mlx_image_t		*collectible;
+	mlx_image_t		*exit;
+	mlx_image_t		*disclaimer;
+}	t_images;
 
 typedef struct s_game
 {
 	mlx_t			*mlx;
-	mlx_texture_t	*player_texture;
-	mlx_texture_t	*wall_texture;
-	mlx_texture_t	*ground_texture;
-	mlx_texture_t	*collectible_texture;
-	mlx_texture_t	*exit_texture;
-	mlx_image_t		*player_image;
-	mlx_image_t		*wall_image;
-	mlx_image_t		*ground_image;
-	mlx_image_t		*collectible_image;
-	mlx_image_t		*exit_image;
-	mlx_image_t		*disclaimer_image;
+	t_textures		textures;
+	t_images		images;
 	char			**map;
 	int				map_width;
 	int				map_height;
@@ -67,14 +77,20 @@ void		show_disclaimer(t_game *game);
 
 // Gestión de gráficos y texturas
 void		load_textures(t_game *game);
+void		delete_textures(t_game *game);
+void		create_images_from_textures(t_game *game);
+void		delete_images(t_game *game);
 void		verify_images(t_game *game);
 void		create_images(t_game *game);
+void		find_player_and_collectibles(t_game *game);
 // Movimientos del jugador
 void		move_player(t_game *game, int new_x, int new_y);
+// Renderización
+void		render_map(t_game *game);
+void		render_elements(t_game *game);
+void		render_ground(t_game *game);
 // Inicialización y cierre del juego
 void		close_window(t_game *game);
-void		find_player_and_collectibles(t_game *game);
-void		render_map(t_game *game);
 void		start_game(t_game *game);
 int			initialize_mlx(t_game *game);
 void		initialize_hooks(t_game *game);

@@ -6,19 +6,11 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 12:43:20 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:07:33 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	close_window(t_game *game)
-{
-	ft_printf("Game Over\n");
-	mlx_terminate(game->mlx);
-	free_map_memory(game->map, game->map_height);
-	exit(0);
-}
 
 void	move_player(t_game *game, int new_x, int new_y)
 {
@@ -64,4 +56,29 @@ void	handle_input(mlx_key_data_t keydata, void *param)
 void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	handle_input(keydata, param);
+}
+
+void	find_player_and_collectibles(t_game *game)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	game->collectibles = 0;
+	while (i < game->map_height)
+	{
+		j = 0;
+		while (j < game->map_width)
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player_x = j;
+				game->player_y = i;
+			}
+			else if (game->map[i][j] == 'C')
+				game->collectibles++;
+			j++;
+		}
+		i++;
+	}
 }
