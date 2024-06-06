@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 10:47:55 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:21:48 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_game
 	mlx_image_t		*wall_image;
 	mlx_image_t		*collectible_image;
 	mlx_image_t		*exit_image;
+	mlx_image_t		*disclaimer_image;
 	char			**map;
 	int				map_width;
 	int				map_height;
@@ -57,10 +58,11 @@ char		*ft_strcpy(char *dest, const char *src);
 // Manejo de entradas
 void		key_hook(mlx_key_data_t keydata, void *param);
 void		handle_input(mlx_key_data_t keydata, void *param);
-void		key_hook_disclaimer(mlx_key_data_t keydata, void *param);
+void		disclaimer_key_hook(mlx_key_data_t keydata, void *param);
 // Pantallas
-void		show_disclaimer(mlx_t *mlx);
 void		show_main_menu(mlx_t *mlx);
+void		show_disclaimer(t_game *game);
+
 // Gestión de gráficos y texturas
 void		load_textures(t_game *game);
 void		create_images(t_game *game);

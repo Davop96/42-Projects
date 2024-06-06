@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 10:37:01 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:43:20 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	move_player(t_game *game, int new_x, int new_y)
 		game->collectibles--;
 		game->map[new_y][new_x] = '0';
 	}
-	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0) 
+	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0)
 	{
 		ft_printf("¡Winner!\n");
 		close_window(game);

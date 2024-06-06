@@ -12,31 +12,40 @@
 
 #include "so_long.h"
 
-void	key_hook_disclaimer(mlx_key_data_t keydata, void *param)
+#define DISCLAIMER_IMAGE_PATH "assets/misc/disclaimer.png"
+
+void	disclaimer_key_hook(mlx_key_data_t keydata, void *param)
 {
-	mlx_t	*mlx;
+	t_game		*game;
 
-	mlx = (mlx_t *)param;
-	if (keydata.key == MLX_KEY_ESCAPE || keydata.action == MLX_PRESS)
-		mlx_close_window(mlx);
-}
-
-void	show_disclaimer(mlx_t *mlx)
-{
-	mlx_image_t	*disclaimer_image;
-
-	disclaimer_image = mlx_new_image(mlx, 1600, 1200);
-	if (!disclaimer_image)
+	game = (t_game *)param;
+	if (keydata.action == MLX_PRESS)
 	{
-		ft_printf("Error: Failed to create disclaimer image\n");
-		exit(1);
+		mlx_delete_image(game->mlx, game->disclaimer_image);
+		start_game(game);
 	}
-	mlx_put_string(mlx,
-		"All assets used in this game belong to Nintendo and Gamefreak.",
-		400, 300);
-	mlx_put_string(mlx, "Press any key to continue...", 400, 350);
-	mlx_key_hook(mlx, key_hook_disclaimer, mlx);
-	mlx_image_to_window(mlx, disclaimer_image, 0, 0);
-	mlx_loop(mlx);
-	mlx_delete_image(mlx, disclaimer_image);
 }
+
+void	show_disclaimer(t_game *game)
+{
+	mlx_texture_t	*disclaimer_texture;
+
+	disclaimer_texture = mlx_load_png(DISCLAIMER_IMAGE_PATH);
+	if (!disclaimer_texture)
+	{
+		ft_printf("Error: Failed to load disclaimer image\n");
+		exit(EXIT_FAILURE);
+	}
+	game->disclaimer_image
+		= mlx_texture_to_image(game->mlx, disclaimer_texture);
+	if (!game->disclaimer_image)
+	{
+		ft_printf("Error: Failed to convert disclaimer texture to image\n");
+		exit(EXIT_FAILURE);
+	}
+	mlx_image_to_window(game->mlx, game->disclaimer_image, 0, 0);
+	mlx_key_hook(game->mlx, disclaimer_key_hook, game);
+	mlx_delete_texture(disclaimer_texture);
+}
+
+

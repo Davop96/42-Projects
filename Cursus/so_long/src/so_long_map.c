@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 10:39:03 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:00:19 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	determine_map_dimensions(int fd, int *width, int *height)
 		line = get_next_map_line(fd);
 	}
 	close(fd);
-	fd = open("./assets/maps/map.ber", O_RDONLY);
+	fd = open("map.ber", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("Error re-opening file");
