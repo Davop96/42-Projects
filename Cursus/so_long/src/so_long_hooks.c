@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_hooks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:54:12 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/05 20:11:22 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 10:37:01 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	close_window(t_game *game)
 	free_map_memory(game->map, game->map_height);
 	exit(0);
 }
-
 
 void	move_player(t_game *game, int new_x, int new_y)
 {
@@ -49,7 +48,7 @@ void	handle_input(mlx_key_data_t keydata, void *param)
 
 	game = (t_game *)param;
 	if (keydata.action != MLX_PRESS)
-		return;
+		return ;
 	if (keydata.key == MLX_KEY_W)
 		move_player(game, game->player_x, game->player_y - 1);
 	else if (keydata.key == MLX_KEY_A)
@@ -66,6 +65,3 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	handle_input(keydata, param);
 }
-
-
-

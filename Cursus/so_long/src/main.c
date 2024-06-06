@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 01:40:17 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 10:36:03 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,27 @@ void	find_player_and_collectibles(t_game *game)
 
 void	render_map(t_game *game)
 {
-	int i = 0;
-	int j;
+	int	i;
+	int	j;
 
+	i = 0;
 	while (i < game->map_height)
 	{
 		j = 0;
 		while (j < game->map_width)
 		{
 			if (game->map[i][j] == '1')
-				mlx_image_to_window(game->mlx, game->wall_image, j * TILE_SIZE, i * TILE_SIZE);
+				mlx_image_to_window(game->mlx, game->wall_image, j
+					* TILE_SIZE, i * TILE_SIZE);
 			else if (game->map[i][j] == 'C')
-				mlx_image_to_window(game->mlx, game->collectible_image, j * TILE_SIZE, i * TILE_SIZE);
+				mlx_image_to_window(game->mlx, game->collectible_image, j
+					* TILE_SIZE, i * TILE_SIZE);
 			else if (game->map[i][j] == 'E')
-				mlx_image_to_window(game->mlx, game->exit_image, j * TILE_SIZE, i * TILE_SIZE);
+				mlx_image_to_window(game->mlx, game->exit_image, j
+					* TILE_SIZE, i * TILE_SIZE);
 			else if (game->map[i][j] == 'P')
-				mlx_image_to_window(game->mlx, game->player_image, j * TILE_SIZE, i * TILE_SIZE);
+				mlx_image_to_window(game->mlx, game->player_image, j
+					* TILE_SIZE, i * TILE_SIZE);
 			j++;
 		}
 		i++;
@@ -71,7 +76,6 @@ void	start_game(t_game *game)
 	mlx_loop(game->mlx);
 	free_map_memory(game->map, game->map_height);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -98,10 +102,3 @@ int	main(int argc, char **argv)
 	start_game(&game);
 	return (0);
 }
-
-
-
-
-
-
-

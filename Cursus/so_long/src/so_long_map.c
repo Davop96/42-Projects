@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/05 20:06:42 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 10:39:03 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,9 @@ char	**allocate_map_memory(int width, int height)
 		perror("Error allocating map memory");
 		exit(EXIT_FAILURE);
 	}
-
 	allocate_rows(map, width, height, 0);
 	return (map);
 }
-
 
 void	free_map_memory(char **map, int height)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_initializer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/05 20:07:11 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 10:37:12 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	initialize_mlx(t_game *game)
 	}
 	return (0);
 }
-
 
 void	initialize_hooks(t_game *game)
 {
