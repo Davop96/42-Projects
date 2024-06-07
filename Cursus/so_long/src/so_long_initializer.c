@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/07 14:00:38 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:29:47 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ void	initialize_hooks(t_game *game)
 
 void	initialize_game(t_game *game)
 {
+	game->mlx = NULL;
+	game->textures.player = NULL;
+	game->textures.wall = NULL;
+	game->textures.ground = NULL;
+	game->textures.collectible = NULL;
+	game->textures.exit = NULL;
+	game->textures.disclaimer = NULL;
+	game->images.player = NULL;
+	game->images.wall = NULL;
+	game->images.ground = NULL;
+	game->images.collectible = NULL;
+	game->images.exit = NULL;
+	game->images.disclaimer = NULL;
+	game->map = NULL;
+	game->map_width = 0;
+	game->map_height = 0;
+	game->player_x = 0;
+	game->player_y = 0;
 	game->collectibles = 0;
 	game->moves = 0;
 }

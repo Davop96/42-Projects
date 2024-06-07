@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:24 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 10:47:43 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:54:03 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,4 @@ void	populate_map(int fd, char **map, int height)
 	}
 	if (line != NULL)
 		free(line);
-}
-
-char	**read_map(const char *filename, int *width, int *height)
-{
-	int		fd;
-	char	**map;
-
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		exit(EXIT_FAILURE);
-	}
-	*width = determine_map_dimensions(fd, width, height);
-	map = allocate_map_memory(*width, *height);
-	if (map == NULL)
-	{
-		perror("Error allocating memory");
-		close(fd);
-		exit(EXIT_FAILURE);
-	}
-	populate_map(fd, map, *height);
-	close(fd);
-	return (map);
 }

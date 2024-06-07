@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/07 13:54:21 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:39:02 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ void	create_images(t_game *game)
 	verify_images(game);
 }
 
+char	**read_map(const char *filename, int *width, int *height)
+{
+	int		fd;
+	char	**map;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error opening file");
+		exit(EXIT_FAILURE);
+	}
+	*width = determine_map_dimensions(fd, width, height);
+	map = allocate_map_memory(*width, *height);
+	if (map == NULL)
+	{
+		perror("Error allocating memory");
+		close(fd);
+		exit(EXIT_FAILURE);
+	}
+	populate_map(fd, map, *height);
+	close(fd);
+	return (map);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -53,12 +77,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	find_player_and_collectibles(&game);
-	show_disclaimer(&game);
 	if (initialize_mlx(&game))
 	{
 		free_map_memory(game.map, game.map_height);
 		return (1);
 	}
+	show_disclaimer(&game);
 	mlx_loop(game.mlx);
 	return (0);
 }
