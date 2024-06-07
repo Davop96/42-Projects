@@ -28,16 +28,14 @@ void	disclaimer_key_hook(mlx_key_data_t keydata, void *param)
 
 void	show_disclaimer(t_game *game)
 {
-	mlx_texture_t	*disclaimer_texture;
-
-	disclaimer_texture = mlx_load_png(DISCLAIMER_IMAGE_PATH);
-	if (!disclaimer_texture)
+	game->textures.disclaimer = mlx_load_png(DISCLAIMER_IMAGE_PATH);
+	if (!game->textures.disclaimer)
 	{
 		ft_printf("Error: Failed to load disclaimer image\n");
 		exit(EXIT_FAILURE);
 	}
 	game->images.disclaimer
-		= mlx_texture_to_image(game->mlx, disclaimer_texture);
+		= mlx_texture_to_image(game->mlx, game->textures.disclaimer);
 	if (!game->images.disclaimer)
 	{
 		ft_printf("Error: Failed to convert disclaimer texture to image\n");
@@ -45,5 +43,5 @@ void	show_disclaimer(t_game *game)
 	}
 	mlx_image_to_window(game->mlx, game->images.disclaimer, 0, 0);
 	mlx_key_hook(game->mlx, disclaimer_key_hook, game);
-	mlx_delete_texture(disclaimer_texture);
+	mlx_delete_texture(game->textures.disclaimer);
 }

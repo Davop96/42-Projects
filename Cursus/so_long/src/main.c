@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:08:41 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 13:54:21 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	find_player_and_collectibles(&game);
+	show_disclaimer(&game);
 	if (initialize_mlx(&game))
 	{
 		free_map_memory(game.map, game.map_height);
 		return (1);
 	}
-	show_disclaimer(&game);
 	mlx_loop(game.mlx);
 	return (0);
 }

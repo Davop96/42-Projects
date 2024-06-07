@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:44:56 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 13:58:42 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_textures
 	mlx_texture_t	*ground;
 	mlx_texture_t	*collectible;
 	mlx_texture_t	*exit;
+	mlx_texture_t	*disclaimer;
 }	t_textures;
 
 typedef struct s_images

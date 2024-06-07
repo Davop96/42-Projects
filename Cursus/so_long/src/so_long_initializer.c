@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 13:11:10 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:00:38 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 
 int	initialize_mlx(t_game *game)
 {
-	game->mlx = mlx_init(1600, 1200, "GTA VI", false);
+	int	window_width;
+	int	window_height;
+
+	if (game->images.disclaimer)
+	{
+		window_width = game->images.disclaimer->width;
+		window_height = game->images.disclaimer->height;
+	}
+	else
+	{
+		window_width = game->map_width * TILE_SIZE;
+		window_height = game->map_height * TILE_SIZE;
+	}
+	game->mlx = mlx_init(window_width, window_height, "GTA VI", false);
 	if (!game->mlx)
 	{
 		ft_printf("Error: Failed to initialize MLX\n");

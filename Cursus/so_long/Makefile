@@ -6,7 +6,7 @@
 #    By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 11:08:02 by dbohoyo-          #+#    #+#              #
-#    Updated: 2024/06/06 14:58:19 by dbohoyo-         ###   ########.fr        #
+#    Updated: 2024/06/07 13:00:59 by dbohoyo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,21 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT)/libft.a $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
+
+$(LIBFT)/libft.a:
+	$(MAKE) -C $(LIBFT)
 
 
 all: $(NAME)
 
 clean:
+			$(MAKE) -C $(LIBFT) clean
 			$(RM) -r $(OBJ_DIR)
 
 fclean:		clean
+			$(MAKE) -C $(LIBFT) fclean
 			$(RM) $(NAME)
 
 re:			fclean all
