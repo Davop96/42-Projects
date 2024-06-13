@@ -22,7 +22,7 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-# define TILE_SIZE 64
+# define TILE_SIZE 32
 
 typedef struct s_textures
 {
