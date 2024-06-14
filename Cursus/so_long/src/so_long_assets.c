@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:55:41 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/14 02:03:54 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,68 +14,60 @@
 
 void	load_textures(t_game *game)
 {
-	game->textures.player = mlx_load_png("assets/characters/brendan-1.png");
-	game->textures.wall = mlx_load_png("assets/misc/wall.png");
-	game->textures.ground = mlx_load_png("assets/misc/ground.png");
-	game->textures.collectible = mlx_load_png("assets/collec/ball-1.png");
-	game->textures.exit = mlx_load_png("assets/misc/exit.png");
-}
-
-void	delete_textures(t_game *game)
-{
-	if (game->textures.player)
-		mlx_delete_texture(game->textures.player);
-	if (game->textures.wall)
-		mlx_delete_texture(game->textures.wall);
-	if (game->textures.ground)
-		mlx_delete_texture(game->textures.ground);
-	if (game->textures.collectible)
-		mlx_delete_texture(game->textures.collectible);
-	if (game->textures.exit)
-		mlx_delete_texture(game->textures.exit);
+	game->texture.wall = mlx_load_png("./assets/misc/wall.png");
+	if (!game->texture.wall)
+	{
+		ft_printf("Error: Wall texture not found.\n");
+		mlx_terminate(game->mlx);
+		free_game(game, 1);
+		exit (1);
+	}
+	game->texture.ground = mlx_load_png("./assets/misc/ground.png");
+	game->texture.player = mlx_load_png("./assets/characters/brendan-1.png");
+	game->texture.collec = mlx_load_png("./assets/collec/ball-1.png");
+	game->texture.exit = mlx_load_png("./assets/misc/exit.png");
 }
 
 void	create_images_from_textures(t_game *game)
 {
-	game->images.player = mlx_texture_to_image
-		(game->mlx, game->textures.player);
-	game->images.wall = mlx_texture_to_image(game->mlx, game->textures.wall);
-	game->images.ground = mlx_texture_to_image
-		(game->mlx, game->textures.ground);
-	game->images.collectible = mlx_texture_to_image
-		(game->mlx, game->textures.collectible);
-	game->images.exit = mlx_texture_to_image(game->mlx, game->textures.exit);
+	game->image.wall = mlx_texture_to_image(game->mlx, game->texture.wall);
+	game->image.ground = mlx_texture_to_image(game->mlx, game->texture.ground);
+	game->image.player = mlx_texture_to_image(game->mlx, game->texture.player);
+	game->image.collec = mlx_texture_to_image(game->mlx, game->texture.collec);
+	game->image.exit = mlx_texture_to_image(game->mlx, game->texture.exit);
 }
 
-void	delete_images(t_game *game)
+void	hook_images(t_game *game, char letter, t_point p)
 {
-	if (game->images.player)
-		mlx_delete_image(game->mlx, game->images.player);
-	if (game->images.wall)
-		mlx_delete_image(game->mlx, game->images.wall);
-	if (game->images.ground)
-		mlx_delete_image(game->mlx, game->images.ground);
-	if (game->images.collectible)
-		mlx_delete_image(game->mlx, game->images.collectible);
-	if (game->images.exit)
-		mlx_delete_image(game->mlx, game->images.exit);
+	if (letter == '1' && game->image.wall != NULL)
+		mlx_image_to_window(game->mlx, game->image.wall, p.x * 32, p.y * 32);
+	if (letter != '1' && game->image.ground != NULL)
+		mlx_image_to_window(game->mlx, game->image.ground, p.x * 32, p.y * 32);
+	if (letter == 'P' && game->image.player != NULL)
+		mlx_image_to_window(game->mlx, game->image.player, p.x * 32, p.y * 32);
+	if (letter == 'C' && game->image.collec != NULL)
+		mlx_image_to_window(game->mlx, game->image.collec, p.x * 32, p.y * 32);
+	if (letter == 'E' && game->image.exit != NULL)
+		mlx_image_to_window(game->mlx, game->image.exit, p.x * 32, p.y * 32);
 }
 
-void	verify_images(t_game *game)
+void	build_map(t_game *game)
 {
-	if (!game->textures.player || !game->textures.wall || !game->textures.ground
-		|| !game->textures.collectible || !game->textures.exit)
+	t_point	pos;
+	int		j;
+	int		i;
+
+	j = 0;
+	while (j < game->size.y)
 	{
-		ft_printf("Error: Failed to load one or more textures\n");
-		delete_textures(game);
-		exit(EXIT_FAILURE);
-	}
-	create_images_from_textures(game);
-	if (!game->images.player || !game->images.wall || !game->images.ground
-		|| !game->images.collectible || !game->images.exit)
-	{
-		ft_printf("Error: Failed to create one or more images\n");
-		delete_images(game);
-		exit(EXIT_FAILURE);
+		i = 0;
+		while (game->matrix[j][i] != '\n' && game->matrix[j][i] != '\0')
+		{
+			pos.x = i;
+			pos.y = j;
+			hook_images(game, game->matrix[j][i], pos);
+			i++;
+		}
+		j++;
 	}
 }

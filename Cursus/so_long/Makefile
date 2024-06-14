@@ -6,7 +6,7 @@
 #    By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 11:08:02 by dbohoyo-          #+#    #+#              #
-#    Updated: 2024/06/07 13:00:59 by dbohoyo-         ###   ########.fr        #
+#    Updated: 2024/06/14 01:38:33 by dbohoyo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,14 @@ MLX42			= ./MLX42
 LIBFT			= ./libft
 RM 				= rm -f
 
-SRC_DIR			= src
-OBJ_DIR			= obj
+SRC_DIR			= ./src
+OBJ_DIR			= ./obj
 
 SRC_FILES		= 	$(SRC_DIR)/main.c $(SRC_DIR)/so_long_utils.c \
-					$(SRC_DIR)/so_long_map.c $(SRC_DIR)/so_long_assets.c \
-					$(SRC_DIR)/so_long_hooks.c $(SRC_DIR)/so_long_initializer.c \
-					$(SRC_DIR)/so_long_screens.c $(SRC_DIR)/so_long_render.c
+					$(SRC_DIR)/so_long_map.c $(SRC_DIR)/so_long_map_utils.c \
+					$(SRC_DIR)/so_long_verifier.c $(SRC_DIR)/so_long_initializer.c \
+					$(SRC_DIR)/so_long_screens.c $(SRC_DIR)/so_long_assets.c \
+					$(SRC_DIR)/so_long_memory.c $(SRC_DIR)/so_long_moves.c
 
 OBJS			= 	$(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

@@ -6,40 +6,72 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:24 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/07 15:54:03 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:11:18 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+t_game	**check_tab(t_game	**game, char to_check)
 {
-	int		i;
-
-	i = 0;
-	while (src[i] != '\0')
+	if (to_check == 'C')
 	{
-		dest[i] = src[i];
-		i++;
+		(*game)->object.collec++;
+		(*game)->coins++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (to_check == 'P')
+		(*game)->object.player++;
+	if (to_check == 'E')
+		(*game)->object.exit++;
+	if (to_check == 'X')
+		(*game)->object.enemy++;
+	return (game);
 }
 
-void	populate_map(int fd, char **map, int height)
+t_game	**fill(char **tab, t_point size, t_point cur, t_game **game)
 {
-	int		i;
-	char	*line;
-
-	i = 0;
-	line = get_next_map_line(fd);
-	while (i < height && line != NULL)
+	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
+		|| tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'F')
+		return (game);
+	if (tab[cur.y][cur.x] == 'E')
 	{
-		ft_strcpy(map[i], line);
-		free(line);
-		i++;
-		line = get_next_map_line(fd);
+		tab[cur.y][cur.x] = 'F';
+		(*game)->object.exit++;
+		return (game);
 	}
-	if (line != NULL)
-		free(line);
+	game = check_tab(game, tab[cur.y][cur.x]);
+	tab[cur.y][cur.x] = 'F';
+	game = fill(tab, size, (t_point){cur.x - 1, cur.y}, game);
+	game = fill(tab, size, (t_point){cur.x + 1, cur.y}, game);
+	game = fill(tab, size, (t_point){cur.x, cur.y - 1}, game);
+	game = fill(tab, size, (t_point){cur.x, cur.y + 1}, game);
+	return (game);
+}
+
+t_game	*flood_fill(t_game *game)
+{
+	game->object.collec = 0;
+	game->object.exit = 0;
+	game->object.player = 0;
+	game = *fill(game->matrix2, game->size, game->player, &game);
+	return (game);
+}
+
+int	key_check(t_game *game)
+{
+	if (game->matrix[game->player.y - 1][game->player.x] != '1'
+		&& mlx_is_key_down(game->mlx, MLX_KEY_UP))
+		return (1);
+	if (game->matrix[game->player.y + 1][game->player.x] != '1'
+		&& mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
+		return (2);
+	if (game->matrix[game->player.y][game->player.x - 1] != '1'
+		&& mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
+		return (3);
+	if (game->matrix[game->player.y][game->player.x + 1] != '1'
+		&& mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
+		return (4);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
+		return (5);
+	return (0);
 }
