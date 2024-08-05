@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 01:16:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 01:37:37 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 20:54:44 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,22 @@ char	**free_matrix(char	**matrix, int cont)
 
 void	delete_texture(t_game **game)
 {
-	mlx_delete_texture((*game)->texture.player);
-	(*game)->texture.player = NULL;
+	mlx_delete_texture((*game)->texture.p_d_w1);
+	(*game)->texture.p_d_w1 = NULL;
+	mlx_delete_texture((*game)->texture.p_d_w2);
+	(*game)->texture.p_d_w2 = NULL;
+	mlx_delete_texture((*game)->texture.p_u_w1);
+	(*game)->texture.p_u_w1 = NULL;
+	mlx_delete_texture((*game)->texture.p_u_w2);
+	(*game)->texture.p_u_w2 = NULL;
+	mlx_delete_texture((*game)->texture.p_l_w1);
+	(*game)->texture.p_l_w1 = NULL;
+	mlx_delete_texture((*game)->texture.p_l_w2);
+	(*game)->texture.p_l_w2 = NULL;
+	mlx_delete_texture((*game)->texture.p_r_w1);
+	(*game)->texture.p_r_w1 = NULL;
+	mlx_delete_texture((*game)->texture.p_r_w2);
+	(*game)->texture.p_r_w2 = NULL;
 	mlx_delete_texture((*game)->texture.exit);
 	(*game)->texture.exit = NULL;
 	mlx_delete_texture((*game)->texture.collec);
@@ -60,8 +74,22 @@ void	delete_texture(t_game **game)
 
 void	delete_image(t_game **game)
 {
-	mlx_delete_image((*game)->mlx, (*game)->image.player);
-	(*game)->image.player = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_d_w1);
+	(*game)->image.p_d_w1 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_d_w2);
+	(*game)->image.p_d_w2 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_u_w1);
+	(*game)->image.p_u_w1 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_u_w2);
+	(*game)->image.p_u_w2 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_l_w1);
+	(*game)->image.p_l_w1 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_l_w2);
+	(*game)->image.p_l_w2 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_r_w1);
+	(*game)->image.p_r_w1 = NULL;
+	mlx_delete_image((*game)->mlx, (*game)->image.p_r_w2);
+	(*game)->image.p_r_w2 = NULL;
 	mlx_delete_image((*game)->mlx, (*game)->image.exit);
 	(*game)->image.exit = NULL;
 	mlx_delete_image((*game)->mlx, (*game)->image.collec);

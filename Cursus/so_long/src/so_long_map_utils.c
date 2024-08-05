@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:59:31 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 01:10:00 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 21:33:12 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,15 @@ char	**make_matrix(t_game *game)
 	while (game->map)
 	{
 		matrix[i] = ft_strdup(game->map->map);
+		if (!matrix[i])
+		{
+			free_matrix(matrix, i);
+			return (NULL);
+		}
 		i++;
 		game->map = game->map->next;
 	}
 	game->map = temp;
+	matrix[i] = NULL;
 	return (matrix);
 }

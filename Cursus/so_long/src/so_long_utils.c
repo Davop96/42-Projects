@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:24 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 00:11:18 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 09:07:24 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_game	**check_tab(t_game	**game, char to_check)
 	if (to_check == 'C')
 	{
 		(*game)->object.collec++;
-		(*game)->coins++;
+		(*game)->balls++;
 	}
 	if (to_check == 'P')
 		(*game)->object.player++;

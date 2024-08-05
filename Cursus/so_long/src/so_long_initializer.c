@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 02:57:54 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 21:20:50 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	initialize_obj(t_object *objects)
 
 t_game	*init_game(t_game *game)
 {
+	game->counter = 0;
 	game->path = NULL;
 	game->map = NULL;
 	game->matrix = NULL;

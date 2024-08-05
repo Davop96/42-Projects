@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 01:26:57 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 02:02:12 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 22:04:27 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ void	move_to_up(t_game *game, int y, int x)
 	game->moves++;
 	game->matrix[y][x] = '0';
 	game->matrix[y - 1][x] = 'P';
+	game->counter++;
+	game->direction = 'U';
+	game->t_walk = true;
 	ft_printf("Moves: %d\n", game->moves);
 	hook_images(game, game->matrix[y][x], p);
 	p.y--;
+	game->t_walk = false;
 	hook_images(game, game->matrix[y - 1][x], p);
 }
 
@@ -54,9 +58,13 @@ void	move_to_down(t_game *game, int y, int x)
 	game->moves++;
 	game->matrix[y][x] = '0';
 	game->matrix[y + 1][x] = 'P';
+	game->counter++;
+	game->direction = 'D';
+	game->t_walk = true;
 	ft_printf("Moves: %d\n", game->moves);
 	hook_images(game, game->matrix[y][x], p);
 	p.y++;
+	game->t_walk = false;
 	hook_images(game, game->matrix[y + 1][x], p);
 }
 
@@ -78,9 +86,13 @@ void	move_to_left(t_game *game, int y, int x)
 	game->moves++;
 	game->matrix[y][x] = '0';
 	game->matrix[y][x - 1] = 'P';
+	game->counter++;
+	game->direction = 'L';
+	game->t_walk = true;
 	ft_printf("Moves: %d\n", game->moves);
 	hook_images(game, game->matrix[y][x], p);
 	p.x--;
+	game->t_walk = false;
 	hook_images(game, game->matrix[y][x - 1], p);
 }
 
@@ -102,9 +114,13 @@ void	move_to_right(t_game *game, int y, int x)
 	game->moves++;
 	game->matrix[y][x] = '0';
 	game->matrix[y][x + 1] = 'P';
+	game->counter++;
+	game->direction = 'R';
+	game->t_walk = true;
 	ft_printf("Moves: %d\n", game->moves);
 	hook_images(game, game->matrix[y][x], p);
 	p.x++;
+	game->t_walk = false;
 	hook_images(game, game->matrix[y][x + 1], p);
 }
 

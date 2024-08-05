@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 01:33:27 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 21:30:41 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,16 @@ t_map	*list_map_line(char *map_line)
 {
 	t_map	*new;
 
-	new = NULL;
 	new = malloc(sizeof(t_map));
 	if (!new)
 		return (NULL);
-	if (new)
+	new->map = ft_strdup(map_line);
+	if (!new->map)
 	{
-		new->map = ft_strdup(map_line);
-		new->next = NULL;
+		free(new);
+		return (NULL);
 	}
+	new->next = NULL;
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 03:00:44 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/05 21:29:23 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	check_file(char	*path)
 
 	str = ".ber";
 	len = ft_strlen(path);
-	if (len == 11)
+	if (len < 4)
 		return (1);
 	len = len - 4;
 	i = 0;
@@ -39,7 +39,10 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
+	{
 		ft_printf("Error: Invalid number of arguments");
+		return (1);
+	}
 	if (argc == 2)
 	{
 		if (check_file(argv[1]) == 1)
