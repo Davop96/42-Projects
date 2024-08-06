@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/05 21:51:55 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:46:31 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,45 +23,35 @@
 typedef struct s_texture
 {
 	mlx_texture_t	*player;
-	mlx_texture_t	*p_d;
-	mlx_texture_t	*p_d_w1;
-	mlx_texture_t	*p_d_w2;
-	mlx_texture_t	*p_u;
-	mlx_texture_t	*p_u_w1;
-	mlx_texture_t	*p_u_w2;
-	mlx_texture_t	*p_l;
-	mlx_texture_t	*p_l_w1;
-	mlx_texture_t	*p_l_w2;
-	mlx_texture_t	*p_r;
-	mlx_texture_t	*p_r_w1;
-	mlx_texture_t	*p_r_w2;
+	mlx_texture_t	*p_d_1;
+	mlx_texture_t	*p_d_2;
+	mlx_texture_t	*p_u_1;
+	mlx_texture_t	*p_u_2;
+	mlx_texture_t	*p_l_1;
+	mlx_texture_t	*p_l_2;
+	mlx_texture_t	*p_r_1;
+	mlx_texture_t	*p_r_2;
 	mlx_texture_t	*wall;
 	mlx_texture_t	*ground;
 	mlx_texture_t	*collec;
 	mlx_texture_t	*exit;
-	mlx_texture_t	*enemy;
 }	t_texture;
 
 typedef struct s_image
 {
 	mlx_image_t		*player;
-	mlx_image_t		*p_d;
-	mlx_image_t		*p_d_w1;
-	mlx_image_t		*p_d_w2;
-	mlx_image_t		*p_u;
-	mlx_image_t		*p_u_w1;
-	mlx_image_t		*p_u_w2;
-	mlx_image_t		*p_l;
-	mlx_image_t		*p_l_w1;
-	mlx_image_t		*p_l_w2;
-	mlx_image_t		*p_r;
-	mlx_image_t		*p_r_w1;
-	mlx_image_t		*p_r_w2;
+	mlx_image_t		*p_d_1;
+	mlx_image_t		*p_d_2;
+	mlx_image_t		*p_u_1;
+	mlx_image_t		*p_u_2;
+	mlx_image_t		*p_l_1;
+	mlx_image_t		*p_l_2;
+	mlx_image_t		*p_r_1;
+	mlx_image_t		*p_r_2;
 	mlx_image_t		*wall;
 	mlx_image_t		*ground;
 	mlx_image_t		*collec;
 	mlx_image_t		*exit;
-	mlx_image_t		*enemy;
 }	t_image;
 
 typedef struct s_object
@@ -70,7 +60,6 @@ typedef struct s_object
 	int	wall;
 	int	collec;
 	int	exit;
-	int	enemy;
 }	t_object;
 
 typedef struct s_point
@@ -119,6 +108,7 @@ int			key_check(t_game *game);
 int			map_size_x(t_map *lst);
 int			map_size_y(t_map *lst);
 char		**make_matrix(t_game *game);
+void		*ft_calloc(size_t count, size_t size);
 // Map
 t_object	map_objects(t_map *map);
 void		map_add_back(t_game *game, t_map *new);
@@ -144,10 +134,10 @@ void		hook_images_player(t_game *game, t_point p);
 void		build_map(t_game *game);
 
 // Player
-void		draw_player_up(t_game *game, t_point p, bool t_walk, int step);
-void		draw_player_down(t_game *game, t_point p, bool t_walk, int step);
-void		draw_player_left(t_game *game, t_point p, bool t_walk, int step);
-void		draw_player_right(t_game *game, t_point p, bool t_walk, int step);
+void		draw_player_up(t_game *game, t_point p, int step);
+void		draw_player_down(t_game *game, t_point p, int step);
+void		draw_player_left(t_game *game, t_point p, int step);
+void		draw_player_right(t_game *game, t_point p, int step);
 // Movement
 void		move_to_up(t_game *game, int y, int x);
 void		move_to_down(t_game *game, int y, int x);

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:24 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/05 09:07:24 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:45:08 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_game	**check_tab(t_game	**game, char to_check)
 		(*game)->object.player++;
 	if (to_check == 'E')
 		(*game)->object.exit++;
-	if (to_check == 'X')
-		(*game)->object.enemy++;
 	return (game);
 }
 
@@ -74,4 +72,23 @@ int	key_check(t_game *game)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		return (5);
 	return (0);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*pt;
+	size_t	total_size;
+	size_t	x;
+
+	total_size = count * size;
+	pt = malloc(total_size);
+	if (pt == NULL)
+		return (NULL);
+	x = 0;
+	while (x < total_size)
+	{
+		((char *)pt)[x] = 0;
+		x++;
+	}
+	return (pt);
 }

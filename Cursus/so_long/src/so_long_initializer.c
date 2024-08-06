@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/05 21:20:50 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:42:09 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	start_mlx(t_game *game)
 {
 	game = find_player(game);
-	game->mlx = mlx_init(game->size.x * 32, game->size.y * 32, "so_long", true);
+	game->mlx = mlx_init(game->size.x * 64, game->size.y * 64, "so_long", true);
 	load_textures(game);
 	create_images_from_textures(game);
 	build_map(game);
@@ -31,16 +31,15 @@ void	initialize_obj(t_object *objects)
 	temp.collec = 0;
 	temp.player = 0;
 	temp.exit = 0;
-	temp.enemy = 0;
 	*objects = temp;
 }
 
 t_game	*init_game(t_game *game)
 {
-	game->counter = 0;
 	game->path = NULL;
 	game->map = NULL;
 	game->matrix = NULL;
+	game->counter = 0;
 	game->player.x = 0;
 	game->player.y = 0;
 	game->size.y = 0;
@@ -86,7 +85,7 @@ int	initializes_map(char *path)
 {
 	t_game	*game;
 
-	game = malloc(sizeof(t_game));
+	game = ft_calloc(sizeof(t_game), 1);
 	if (!game)
 		return (1);
 	game = init_game(game);

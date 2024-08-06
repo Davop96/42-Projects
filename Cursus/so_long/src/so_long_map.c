@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/05 21:30:41 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:47:35 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ t_object	map_objects(t_map *map)
 				obj.player++;
 			if (map->map[i] == 'E')
 				obj.exit++;
-			if (map->map[i] == 'X')
-				obj.enemy++;
 			i++;
 		}
 		map = map->next;
