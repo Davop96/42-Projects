@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 12:05:37 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:44:47 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,16 @@ void	hook_images(t_game *game, char letter, t_point p)
 
 void	hook_images_player(t_game *game, t_point p)
 {
-	mlx_image_to_window(game->mlx, game->image.player, p.x * 64, p.y * 64);
-	if (game->direction == 'U')
+	if (game->direction == 'U' && game->counter > 0)
 		draw_player_up(game, p, game->counter);
-	else if (game->direction == 'D')
+	else if (game->direction == 'D' && game->counter > 0)
 		draw_player_down(game, p, game->counter);
-	else if (game->direction == 'L')
+	else if (game->direction == 'L' && game->counter > 0)
 		draw_player_left(game, p, game->counter);
-	else if (game->direction == 'R')
+	else if (game->direction == 'R' && game->counter > 0)
 		draw_player_right(game, p, game->counter);
+	else
+		mlx_image_to_window(game->mlx, game->image.player, p.x * 64, p.y * 64);
 }
 
 void	build_map(t_game *game)

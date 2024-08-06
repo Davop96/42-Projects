@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 12:42:09 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:46:06 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@ void	start_mlx(t_game *game)
 {
 	game = find_player(game);
 	game->mlx = mlx_init(game->size.x * 64, game->size.y * 64, "so_long", true);
+	if (!game || !game->mlx)
+	{
+		ft_printf("Error: MLX initialization failed\n");
+		free_game(game, 1);
+		exit(EXIT_FAILURE);
+	}
 	load_textures(game);
 	create_images_from_textures(game);
 	build_map(game);
+	game->image.player = NULL;
 	mlx_key_hook(game->mlx, hook_keys, game);
 	mlx_loop(game->mlx);
 }
