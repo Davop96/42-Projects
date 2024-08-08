@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:49:34 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 16:46:06 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:25:22 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	start_mlx(t_game *game)
 	game->mlx = mlx_init(game->size.x * 64, game->size.y * 64, "so_long", true);
 	if (!game || !game->mlx)
 	{
-		ft_printf("Error: MLX initialization failed\n");
+		ft_printf("Error: MLX initialization failed.\n");
 		free_game(game, 1);
 		exit(EXIT_FAILURE);
 	}

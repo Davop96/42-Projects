@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:29:55 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 16:53:24 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:32:21 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int			key_check(t_game *game);
 int			map_size_x(t_map *lst);
 int			map_size_y(t_map *lst);
 char		**make_matrix(t_game *game);
+void		process_map_line(t_game *game, char *map_line);
 void		*ft_calloc(size_t count, size_t size);
 // Map
 t_object	map_objects(t_map *map);

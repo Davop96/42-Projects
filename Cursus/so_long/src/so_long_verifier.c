@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 01:04:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/06/14 01:07:34 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:26:01 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	check_errors(t_game *game, t_object objects)
 		flag = 1;
 	if (flag == 1)
 	{
-		(ft_printf("Error: Failed to load the map\n"));
+		(ft_printf("Error: Failed to load the map.\n"));
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:59:31 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/05 21:33:12 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:35:21 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,40 @@ char	**make_matrix(t_game *game)
 	game->map = temp;
 	matrix[i] = NULL;
 	return (matrix);
+}
+
+void	process_map_line(t_game *game, char *map_line)
+{
+	t_map	*new_line;
+
+	if (map_line[0] == '\n')
+	{
+		ft_printf("Error: Invalid map - empty line detected.\n");
+		free(map_line);
+		exit(EXIT_FAILURE);
+	}
+	new_line = list_map_line(map_line);
+	map_add_back(game, new_line);
+	free(map_line);
+}
+
+t_map	*make_map(t_game *game)
+{
+	char	*map_line;
+	int		fd;
+
+	fd = open(game->path, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_printf("Error: Map not found or without permission.\n");
+		return (NULL);
+	}
+	map_line = get_next_line(fd);
+	while (map_line != NULL)
+	{
+		process_map_line(game, map_line);
+		map_line = get_next_line(fd);
+	}
+	close(fd);
+	return (game->map);
 }

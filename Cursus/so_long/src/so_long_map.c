@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:29:01 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 11:47:35 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:35:54 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,32 +92,4 @@ t_game	*find_player(t_game *game)
 		j++;
 	}
 	return (game);
-}
-
-t_map	*make_map(t_game *game)
-{
-	t_map	*new_line;
-	char	*map_line;
-	int		fd;
-
-	new_line = NULL;
-	map_line = NULL;
-	fd = open(game->path, O_RDONLY);
-	if (fd < 0)
-	{
-		ft_printf("Error: Map not found\n");
-		return (new_line);
-	}
-	map_line = get_next_line(fd);
-	if (!map_line)
-		return (new_line);
-	while (map_line)
-	{
-		new_line = list_map_line(map_line);
-		map_add_back(game, new_line);
-		free(map_line);
-		map_line = get_next_line(fd);
-	}
-	free(map_line);
-	return (game->map);
 }

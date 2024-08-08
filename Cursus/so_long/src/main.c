@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:29:47 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 16:36:17 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:24:52 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc != 2)
 	{
-		ft_printf("Error: Invalid number of arguments");
+		ft_printf("Error: Invalid number of arguments.\n");
 		return (1);
 	}
 	if (argc == 2)
 	{
 		if (check_file(argv[1]) == 1)
 		{
-			ft_printf("Error: Invalid map format\n");
+			ft_printf("Error: Invalid map format.\n");
 			return (1);
 		}
 		i = initializes_map(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: dbohoyo- <dbohoyo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:40:22 by dbohoyo-          #+#    #+#             */
-/*   Updated: 2024/08/06 16:44:47 by dbohoyo-         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:41:02 by dbohoyo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 void	load_textures(t_game *game)
 {
 	game->texture.wall = mlx_load_png("./assets/misc/wall.png");
-	if (!game->texture.wall)
-	{
-		mlx_terminate(game->mlx);
-		free_game(game, 1);
-		exit (1);
-	}
 	game->texture.ground = mlx_load_png("./assets/misc/ground.png");
 	game->texture.player = mlx_load_png("./assets/char/b-1.png");
 	game->texture.p_d_1 = mlx_load_png("./assets/char/b-2.png");
@@ -33,6 +27,16 @@ void	load_textures(t_game *game)
 	game->texture.p_l_2 = mlx_load_png("./assets/char/b-12.png");
 	game->texture.collec = mlx_load_png("./assets/collec/ball-1.png");
 	game->texture.exit = mlx_load_png("./assets/misc/exit.png");
+	if (!game->texture.wall || !game->texture.ground || !game->texture.collec
+		|| !game->texture.exit || !game->texture.player || !game->texture.p_d_1
+		|| !game->texture.p_d_2 || !game->texture.p_u_1 || !game->texture.p_u_2
+		|| !game->texture.p_r_1 || !game->texture.p_r_2 || !game->texture.p_l_1
+		|| !game->texture.p_l_2)
+	{
+		ft_printf("Error: Missing texture.\n");
+		free_game(game, 1);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	create_images_from_textures(t_game *game)
