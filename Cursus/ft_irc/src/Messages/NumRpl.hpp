@@ -1,0 +1,64 @@
+#ifndef NUMRPL_HPP
+#define NUMRPL_HPP
+
+#include <map>
+#include <string>
+
+namespace NumRpl
+{
+	enum NumRplType
+	{
+		RPL_WELCOME,
+		RPL_YOURHOST,
+		RPL_CREATED,
+		RPL_MYINFO,
+		RPL_CHANNELMODEIS,
+		RPL_NOTOPIC,
+		RPL_TOPIC,
+		RPL_TOPICWHOTIME,
+		RPL_NAMREPLY,
+		RPL_ENDOFNAMES,
+		RPL_INVITING,
+
+		ERR_UNKNOWNCOMMAND,
+	
+		ERR_NOSUCHNICK,
+		ERR_NOSUCHCHANNEL,
+		ERR_NONICKNAMEGIVEN,
+		ERR_ERRONEUSNICKNAME,
+		ERR_NICKNAMEINUSE,
+		ERR_USERNOTINCHANNEL,
+		ERR_NOTONCHANNEL,
+		ERR_USERONCHANNEL,
+		ERR_NOTREGISTERED,
+		ERR_NEEDMOREPARAMS,
+		ERR_NORECIPIENT,
+		ERR_NOTEXTTOSEND,
+		ERR_ALREADYREGISTERED,
+		ERR_PASSWDMISMATCH,
+		ERR_KEYSET,
+		ERR_CHANNELISFULL,
+		ERR_INVITEONLYCHAN,
+		ERR_BADCHANNELKEY,
+		ERR_UNKNOWNMODE,
+		ERR_CHANOPRIVSNEEDED,
+		ERR_INVALIDMODEPARAM,
+		ERR_BADCHANMASK,
+	};
+
+	struct NumRpl_s
+	{
+		std::string code;
+		std::string trailing;
+
+		NumRpl_s();
+		NumRpl_s(const std::string& codeValue, const std::string& trailingValue);
+	};
+
+	typedef std::map<NumRplType, NumRpl_s> NumRplMap_t;
+
+	const NumRplMap_t& getMap();
+	const NumRpl_s& getNumRpl(NumRplType type);
+}
+
+#endif
